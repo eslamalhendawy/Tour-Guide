@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.main-header {
+  font-family: "Oleo Script", cursive;
+}
+
+.homeHight {
+  height: calc(100vh - 110px);
+}
