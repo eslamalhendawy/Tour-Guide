@@ -8,8 +8,8 @@ function Login() {
 
   return (
     <div>
-      <button onClick={handleOpen} className="mr-6 text-lg font-semibold hover:text-primary duration-300">
-        Login
+      <button onClick={handleOpen} className="bg-brownOrange border border-postage text-postage hover:bg-postage hover:text-white duration-300 text-lg font-base py-1 px-8 rounded-lg">
+        Sign in
       </button>
       <Modal open={open} onClose={handleClose}>
         <div className="flex justify-center items-center h-screen ">

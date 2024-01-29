@@ -11,6 +11,8 @@ export default {
         secondary: '#795938',
         accent: '#613528',
         accent2: '#B0ACA3',
+        postage: "#003441",
+        brownOrange: "#E09955",
       },
     },
   },
