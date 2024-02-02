@@ -1,4 +1,4 @@
-import phone from "../assets/Rectangle (2).png";
+import phone from "/assets/Rectangle (2).png";
 
 function PhoneApp() {
   return (

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import SideMenu from "./SideMenu";
 import Login from "./Login";
 
-import logo from "../assets/6 1.png";
+import logo from "/assets/6 1.png";
 
 function Header() {
   return (

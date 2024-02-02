@@ -1,15 +1,15 @@
 function TravelWithUs() {
   const list = [
     {
-      img: "/src/assets/1f481-1f3fd.svg.png",
+      img: "/assets/1f481-1f3fd.svg.png",
       text: "Cultural Exploration: EgyTraveler unlocks the richness of Egypt's culture, offering a seamless journey through historic wonders and modern marvels.",
     },
     {
-      img: "/src/assets/1f556.svg.png",
+      img: "/assets/1f556.svg.png",
       text: "Cultural Exploration: EgyTraveler unlocks the richness of Egypt's culture, offering a seamless journey through historic wonders and modern marvels.",
     },
     {
-      img: "/src/assets/1f4b2.svg.png",
+      img: "/assets/1f4b2.svg.png",
       text: "Cultural Exploration: EgyTraveler unlocks the richness of Egypt's culture, offering a seamless journey through historic wonders and modern marvels.",
     },
   ];

@@ -1,4 +1,4 @@
-import img from "/src/assets/river-nile-egypt-scaled.jpg.png";
+import img from "/assets/river-nile-egypt-scaled.jpg.png";
 
 function TouristSection() {
   return (

@@ -1,4 +1,4 @@
-import heroImage from "../assets/kisspng-nefertiti-bust-wrinkle-rhytidectomy-face-nefertiti-5b308d4010a1a4 2.png";
+import heroImage from "/assets/kisspng-nefertiti-bust-wrinkle-rhytidectomy-face-nefertiti-5b308d4010a1a4 2.png";
 
 function Hero() {
   return (

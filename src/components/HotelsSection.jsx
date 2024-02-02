@@ -1,4 +1,4 @@
-import img from "/src/assets/sharm-el-sheikh-sunshine-resort-scaled.jpg.png";
+import img from "/assets/sharm-el-sheikh-sunshine-resort-scaled.jpg.png";
 
 function HotelsSection() {
   return (

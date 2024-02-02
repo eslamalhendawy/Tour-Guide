@@ -5,19 +5,19 @@ function TravelSlider() {
   const data = [
     {
       name: "Alexandria",
-      Image: "/src/assets/e61a937d-94dd-48c8-8363-3f4160b2c55a 1.png",
+      Image: "/assets/e61a937d-94dd-48c8-8363-3f4160b2c55a 1.png",
     },
     {
       name: "Cairo",
-      Image: "/src/assets/fa6f4aee-1e56-48bc-895c-37beda243a0c 1.png",
+      Image: "/assets/fa6f4aee-1e56-48bc-895c-37beda243a0c 1.png",
     },
     {
       name: "Sinai",
-      Image: "/src/assets/desktop-wallpaper-i-see-how-moses-got-lost-here-top-of-mt-sinai-egypt-oc-sinai 1 (2).png",
+      Image: "/assets/desktop-wallpaper-i-see-how-moses-got-lost-here-top-of-mt-sinai-egypt-oc-sinai 1 (2).png",
     },
     {
       name: "Alexandria",
-      Image: "/src/assets/e61a937d-94dd-48c8-8363-3f4160b2c55a 1.png",
+      Image: "/assets/e61a937d-94dd-48c8-8363-3f4160b2c55a 1.png",
     },
   ];
 

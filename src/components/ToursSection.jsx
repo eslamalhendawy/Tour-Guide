@@ -1,4 +1,4 @@
-import img from "/src/assets/sharm-old-town-egypt-sinai-mountains-view-scaled.jpg.png";
+import img from "/assets/sharm-old-town-egypt-sinai-mountains-view-scaled.jpg.png";
 
 function ToursSection() {
   return (
