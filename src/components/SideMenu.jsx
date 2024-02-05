@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Drawer from "@mui/material/SwipeableDrawer";
 import Login from "./Login";
+import SignUp from "./SignUp";
 
 function SideMenu() {
   const [openMenu, setOpen] = useState(false);
@@ -30,7 +31,7 @@ function SideMenu() {
           </div>
           <div className=" flex gap-6 mb-6">
             <Login />
-            <button className="bg-brownOrange border border-postage text-postage hover:bg-postage hover:text-white duration-300 text-lg font-base py-1 px-8 rounded-lg">Sign Up</button>
+            <SignUp />
           </div>
         </div>
       </Drawer>

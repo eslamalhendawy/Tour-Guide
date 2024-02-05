@@ -1,74 +1,35 @@
-import React from "react";
+import logo from "/assets/6 1.png";
 
 function Footer() {
   return (
     <div className="bg-brownOrange">
-      <div className="container mx-auto py-8 px-3 text-white md:flex gap-4 justify-between">
+      <div className="container mx-auto py-8 px-3 text-white flex flex-col md:flex-row gap-6 justify-between">
         <div>
-          <h3 className="text-center md:text-left mb-2 uppercase">Travel To Egypt</h3>
-          <ul className="text-center md:text-left flex flex-col gap-1 mb-6">
-            <li>
-              <p>Tourist Egypt Tours</p>
-            </li>
-            <li>
-              <p>Tourist Egypt Hotels</p>
-            </li>
-            <li>
-              <p>Tourist Egypt Package Tours</p>
-            </li>
-            <li>
-              <p>Private Tours in Egypt</p>
-            </li>
-            <li>
-              <p>Cairo Tours</p>
-            </li>
-            <li>
-              <p>Sinai Tours</p>
-            </li>
-            <li>
-              <p>Pyramids Tours</p>
-            </li>
-            <li>
-              <p>Luxor Tours</p>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h3 className="text-center md:text-left mb-2 uppercase">Need Help ?</h3>
-          <ul className="text-center md:text-left flex flex-col gap-1 mb-6">
-            <li>
-              <p>Tourist Egypt Tours</p>
-            </li>
-            <li>
-              <p>Tourist Egypt Hotels</p>
-            </li>
-            <li>
-              <p>Tourist Egypt Package Tours</p>
-            </li>
-            <li>
-              <p>Private Tours in Egypt</p>
-            </li>
-            <li>
-              <p>Cairo Tours</p>
-            </li>
-            <li>
-              <p>Sinai Tours</p>
-            </li>
-            <li>
-              <p>Pyramids Tours</p>
-            </li>
-            <li>
-              <p>Luxor Tours</p>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h3 className="text-center md:text-left mb-2 uppercase">stay in touch</h3>
-          <p className="text-center md:text-left lg:w-[80%] mb-2">Subscribe to our newsletter for the latest updates and special offers</p>
-          <div className="flex flex-col md:flex-row gap-2 items-center">
-            <input className="bg-brownOrange border border-white h-[50px] focus:outline-none px-1" type="text" />
-            <button className="border-postage bg-postage text-white duration-300 text-base font-base h-[50px] px-4">Sign Up</button>
+          <div className="max-w-[150px] mb-6 mx-auto md:mx-0">
+            <img src={logo} alt="" />
           </div>
+          <p className="mb-6 text-lg text-center">You can download the app from the links below:</p>
+          <button className="flex gap-2 items-center text-white bg-[#212529] hover:bg-black duration-300 p-2 rounded-lg mx-auto md:mx-0">
+            <i className="fa-brands fa-google-play text-lg lg:text-2xl"></i>
+            <div className="uppercase text-left">
+              <p className="text-[9px] lg:text-[10px]">get egytravler on</p>
+              <p className="text-sm lg:text-base font-bold">google play</p>
+            </div>
+          </button>
+        </div>
+        <div>
+          <ul className="mb-6 space-y-2 text-center md:text-left">
+            <li>Why our Application?</li>
+            <li>Know History</li>
+            <li>Trips</li>
+            <li>Sinuhe</li>
+            <li>Knowledge Check</li>
+          </ul>
+          <ul className="flex items-center justify-center gap-3">
+            <li>Contact Us</li>
+            <li>Terms and conditions</li>
+            <li>About Us</li>
+          </ul>
         </div>
       </div>
     </div>

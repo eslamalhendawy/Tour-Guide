@@ -18,13 +18,13 @@ function Hero() {
                 <p className="text-sm lg:text-base font-bold">google play</p>
               </div>
             </button>
-            <button className="flex gap-2 items-center text-white bg-[#212529] hover:bg-black duration-300 p-2 rounded-lg">
+            {/* <button className="flex gap-2 items-center text-white bg-[#212529] hover:bg-black duration-300 p-2 rounded-lg">
               <i className="fa-brands fa-apple text-lg lg:text-2xl"></i>
               <div className="text-xs uppercase text-left">
                 <p className="text-[9px] lg:text-[10px]">download on the</p>
                 <p className="text-sm lg:text-base font-bold">app store</p>
               </div>
-            </button>
+            </button> */}
           </div>
         </div>
         <div className="relative basis-1/3">
