@@ -1,7 +1,5 @@
-import { useContext } from "react";
+import { useAppContext } from "../Context/AppContext";
 import { Link } from "react-router-dom";
-import StateContext from "../Context/StateContext";
-import DispatchContext from "../Context/DispatchContext";
 
 import SideMenu from "./SideMenu";
 import Login from "./Login";
@@ -14,8 +12,7 @@ import ChangeSuccess from "./ChangeSuccess";
 import logo from "/assets/6 1.png";
 
 function Header() {
-  const appState = useContext(StateContext);
-  const appDispatch = useContext(DispatchContext);
+  const { userData } = useAppContext();
 
   return (
     <div className="bg-[#505050]">
@@ -37,25 +34,27 @@ function Header() {
               <li className="hover:text-white duration-300 cursor-pointer">Search</li>
               <li className="hover:text-white duration-300 cursor-pointer">About Us</li>
               <li className="hover:text-white duration-300 cursor-pointer">Contact Us</li>
-              {appState.loggedIn ? (
-                <li onClick={() => appDispatch({type: "logout"})} className="hover:text-white duration-300 cursor-pointer">{localStorage.getItem("name")}</li>
+              {userData.loggedIn ? (
+                <li  className="hover:text-white duration-300 cursor-pointer">{userData.name}</li>
               ) : (
                 <>
                   <li>
-                    <SignUp />
+                  test
+                    {/* <SignUp /> */}
                   </li>
                   <li>
-                    <Login />
+                  test2
+                    {/* <Login /> */}
                   </li>
                 </>
               )}
             </ul>
           </div>
-          <ForgotPassword />
+          {/* <ForgotPassword />
           <SideMenu />
           <ConfirmCode />
           <NewPassword />
-          <ChangeSuccess />
+          <ChangeSuccess /> */}
         </div>
       </div>
     </div>

@@ -13,3 +13,17 @@ export const postData = async (url, data) => {
     });
     return result;
 };
+
+export const getData = async (url, token) => {
+  let result = [];
+  await axios.get(baseURL + url, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }).then((response) => {
+    result = response.data;
+  }).catch((error) => {
+    result = error;
+  });
+  return result;
+}
