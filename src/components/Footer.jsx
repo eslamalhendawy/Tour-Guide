@@ -2,7 +2,7 @@ import logo from "/assets/6 1.png";
 
 function Footer() {
   return (
-    <div className="bg-brownOrange">
+    <div className="bg-brownOrange rounded-t-2xl">
       <div className="container mx-auto py-8 px-3 text-white flex flex-col md:flex-row gap-6 justify-between">
         <div>
           <div className="max-w-[150px] mb-6 mx-auto md:mx-0">

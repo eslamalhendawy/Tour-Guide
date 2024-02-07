@@ -12,7 +12,12 @@ import ChangeSuccess from "./ChangeSuccess";
 import logo from "/assets/6 1.png";
 
 function Header() {
-  const { userData } = useAppContext();
+  const { userData, setUserData } = useAppContext();
+
+  const logout = () => {
+    setUserData({...userData, loggedIn: false});
+    localStorage.removeItem("userToken");
+  }
 
   return (
     <div className="bg-[#505050]">
@@ -24,37 +29,35 @@ function Header() {
             </div>
           </Link>
           <div className="flex items-stretch gap-4">
-            <div className="hidden lg:flex bg-brownOrange px-6 py-2 md:text-lg rounded justify-center items-center">
+            <div className="hidden lg:flex bg-brownOrange px-6 py-2 xl:text-lg rounded justify-center items-center">
               <i className="fa-solid fa-globe text-postage hover:text-white duration-300 cursor-pointer"></i>
             </div>
-            <ul className="hidden lg:flex items-center gap-4 xl:gap-8 md:text-lg font-semibold text-[#00242D] bg-brownOrange px-6 py-2 rounded">
-              <li className="hover:text-white duration-300 cursor-pointer">Tours</li>
-              <li className="hover:text-white duration-300 cursor-pointer">Packages</li>
-              <li className="hover:text-white duration-300 cursor-pointer">Hotels</li>
+            <ul className="hidden lg:flex items-center gap-4 xl:gap-8 xl:text-lg font-semibold text-[#00242D] bg-brownOrange px-6 py-2 rounded">
+              <li className="hover:text-white duration-300 cursor-pointer">Trips</li>
+              <li className="hover:text-white duration-300 cursor-pointer">Sinuhe</li>
+              <li className="hover:text-white duration-300 cursor-pointer">Planner</li>
               <li className="hover:text-white duration-300 cursor-pointer">Search</li>
-              <li className="hover:text-white duration-300 cursor-pointer">About Us</li>
-              <li className="hover:text-white duration-300 cursor-pointer">Contact Us</li>
+              <Link to="/about-us"><li className="hover:text-white duration-300 cursor-pointer">About Us</li></Link>
+              <Link to="/contact-us"><li className="hover:text-white duration-300 cursor-pointer">Contact Us</li></Link>
               {userData.loggedIn ? (
-                <li  className="hover:text-white duration-300 cursor-pointer">{userData.name}</li>
+                <li onClick={logout}  className="hover:text-white duration-300 cursor-pointer">{userData.name}</li>
               ) : (
                 <>
                   <li>
-                  test
-                    {/* <SignUp /> */}
+                    <SignUp />
                   </li>
                   <li>
-                  test2
-                    {/* <Login /> */}
+                    <Login />
                   </li>
                 </>
               )}
             </ul>
           </div>
-          {/* <ForgotPassword />
           <SideMenu />
+          <ForgotPassword />
           <ConfirmCode />
           <NewPassword />
-          <ChangeSuccess /> */}
+          <ChangeSuccess />
         </div>
       </div>
     </div>

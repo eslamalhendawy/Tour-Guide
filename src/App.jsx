@@ -9,6 +9,8 @@ import "react-toastify/dist/ReactToastify.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import HomePage from "./components/HomePage";
+import AboutUs from "./components/AboutUs";
+import ContactUs from "./components/ContactUs";
 
 import "./App.css";
 
@@ -19,7 +21,6 @@ function App() {
     if (loggedIn) {
       getData("users/get-profile", localStorage.getItem("userToken"))
         .then((response) => {
-          console.log(response);
           setUserData({ name: response.data.user.name, email: response.data.user.email , loggedIn: true});
         })
         .catch((error) => {
@@ -29,11 +30,13 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <div className="bg-postage">
       <Router>
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/contact-us" element={<ContactUs />} />
         </Routes>
         <Footer />
       </Router>

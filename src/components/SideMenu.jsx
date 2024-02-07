@@ -1,9 +1,11 @@
+import { useAppContext } from "../Context/AppContext";
 import { useState } from "react";
 import Drawer from "@mui/material/SwipeableDrawer";
 import Login from "./Login";
 import SignUp from "./SignUp";
 
 function SideMenu() {
+  const { userData } = useAppContext();
   const [openMenu, setOpen] = useState(false);
   const toggleMenu = (openStatus) => (event) => {
     if (event.type === "keydown" && (event.key === "Tab" || event.key === "Shift")) {
@@ -21,9 +23,9 @@ function SideMenu() {
               <i className="fa-solid fa-x" onClick={toggleMenu(false)}></i>
             </div>
             <ul>
-              <li className="text-white font-semibold text-lg hover:text-primary duration-300 cursor-pointer mb-6">Tours</li>
-              <li className="text-white font-semibold text-lg hover:text-primary duration-300 cursor-pointer mb-6">Packages</li>
-              <li className="text-white font-semibold text-lg hover:text-primary duration-300 cursor-pointer mb-6">Hotels</li>
+              <li className="text-white font-semibold text-lg hover:text-primary duration-300 cursor-pointer mb-6">Trips</li>
+              <li className="text-white font-semibold text-lg hover:text-primary duration-300 cursor-pointer mb-6">Sinuhe</li>
+              <li className="text-white font-semibold text-lg hover:text-primary duration-300 cursor-pointer mb-6">Planner</li>
               <li className="text-white font-semibold text-lg hover:text-primary duration-300 cursor-pointer mb-6">Search</li>
               <li className="text-white font-semibold text-lg hover:text-primary duration-300 cursor-pointer mb-6">About Us</li>
               <li className="text-white font-semibold text-lg hover:text-primary duration-300 cursor-pointer mb-6">Contact Us</li>

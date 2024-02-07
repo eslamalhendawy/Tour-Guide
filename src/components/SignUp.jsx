@@ -1,7 +1,6 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
+import { useAppContext } from "../Context/AppContext";
 import Modal from "@mui/material/Modal";
-import DispatchContext from "../Context/DispatchContext";
-import StateContext from "../Context/StateContext";
 
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -9,20 +8,20 @@ import "react-toastify/dist/ReactToastify.css";
 import { postData } from "../Services/APICalls";
 
 function SignUp() {
-  const appDispatch = useContext(DispatchContext);
-  const appState = useContext(StateContext);
-  const handleOpen = () => {
-    appDispatch({ type: "showMenu", data: "signup" });
-  };
-  const handleClose = () => {
-    appDispatch({ type: "showMenu", data: "none" });
-  };
-
+  const { userData, setUserData } = useAppContext();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPass, setConfirmPass] = useState("");
   const regEmail = /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/;
+
+  const handleOpen = () => {
+    setUserData({ ...userData, visibleMenu: "signup" });
+  }
+
+  const handleClose = () => {
+    setUserData({ ...userData, visibleMenu: "none" });
+  }
 
   const handleSignUp = async () => {
     if(name === "" ){
@@ -54,13 +53,11 @@ function SignUp() {
       return;
     }
     let temp = await postData("auth/signup", { name, email, password, passwordConfirm: confirmPass });
+    console.log(temp);
     if(temp.status === "success"){
-      localStorage.setItem("userToken", temp.token);
-      localStorage.setItem("name", temp.data.user.name);
-      localStorage.setItem("email", temp.data.user.email);
+      localStorage.setItem("userToken", temp.token);      
+      setUserData({ name: temp.data.user.name, email: temp.data.user.email, loggedIn: true, visibleMenu: "none" });
       toast.success("Account created successfully");
-      appDispatch({ type: "login" });
-      appDispatch({ type: "showMenu", data: "none" });
     }else{
       console.log(temp);
       toast.error("Sign Up failed, try again later");
@@ -69,10 +66,10 @@ function SignUp() {
 
   return (
     <div>
-      <button onClick={handleOpen} className="bg-brownOrange border border-postage text-postage hover:bg-postage hover:text-white duration-300 text-lg font-base py-1 px-8 rounded-lg">
+      <button onClick={handleOpen} className="bg-brownOrange border border-postage text-postage hover:bg-postage hover:text-white duration-300 xl:text-lg font-base py-1 px-8 rounded-lg">
         Sign Up
       </button>
-      <Modal open={appState.visibleMenu === "signup"} onClose={handleClose}>
+      <Modal open={userData.visibleMenu === "signup"} onClose={handleClose}>
         <div className="flex justify-center items-center h-screen">
           <div className="bg-white p-6 sm:p-12 shadow shadow-white rounded-xl w-[300px] sm:w-[450px]">
             <div className="flex items-center justify-between mb-6">
@@ -109,7 +106,7 @@ function SignUp() {
             </div>
             <div className="flex justify-center gap-2">
               <p>Don&apos;t Have an account ?</p>
-              <button onClick={() => appDispatch({ type: "showMenu", data: "login" })} className="text-brownOrange hover:text-secondary duration-300  font-medium">
+              <button onClick={() => setUserData({ ...userData, visibleMenu: "login" })} className="text-brownOrange hover:text-secondary duration-300  font-medium">
                 Log In
               </button>
             </div>
