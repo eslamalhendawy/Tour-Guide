@@ -15,9 +15,9 @@ function Header() {
   const { userData, setUserData } = useAppContext();
 
   const logout = () => {
-    setUserData({...userData, loggedIn: false});
+    setUserData({ ...userData, loggedIn: false });
     localStorage.removeItem("userToken");
-  }
+  };
 
   return (
     <div className="bg-[#505050]">
@@ -36,11 +36,19 @@ function Header() {
               <li className="hover:text-white duration-300 cursor-pointer">Trips</li>
               <li className="hover:text-white duration-300 cursor-pointer">Sinuhe</li>
               <li className="hover:text-white duration-300 cursor-pointer">Planner</li>
-              <li className="hover:text-white duration-300 cursor-pointer">Search</li>
-              <Link to="/about-us"><li className="hover:text-white duration-300 cursor-pointer">About Us</li></Link>
-              <Link to="/contact-us"><li className="hover:text-white duration-300 cursor-pointer">Contact Us</li></Link>
+              <Link to="/search">
+                <li className="hover:text-white duration-300 cursor-pointer">Search</li>
+              </Link>
+              <Link to="/about-us">
+                <li className="hover:text-white duration-300 cursor-pointer">About Us</li>
+              </Link>
+              <Link to="/contact-us">
+                <li className="hover:text-white duration-300 cursor-pointer">Contact Us</li>
+              </Link>
               {userData.loggedIn ? (
-                <li onClick={logout}  className="hover:text-white duration-300 cursor-pointer">{userData.name}</li>
+                <li onClick={logout} className="hover:text-white duration-300 cursor-pointer">
+                  {userData.name}
+                </li>
               ) : (
                 <>
                   <li>

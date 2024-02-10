@@ -3,6 +3,7 @@ import { useState } from "react";
 import Drawer from "@mui/material/SwipeableDrawer";
 import Login from "./Login";
 import SignUp from "./SignUp";
+import { Link } from "react-router-dom";
 
 function SideMenu() {
   const { userData } = useAppContext();
@@ -26,9 +27,15 @@ function SideMenu() {
               <li className="text-white font-semibold text-lg hover:text-primary duration-300 cursor-pointer mb-6">Trips</li>
               <li className="text-white font-semibold text-lg hover:text-primary duration-300 cursor-pointer mb-6">Sinuhe</li>
               <li className="text-white font-semibold text-lg hover:text-primary duration-300 cursor-pointer mb-6">Planner</li>
-              <li className="text-white font-semibold text-lg hover:text-primary duration-300 cursor-pointer mb-6">Search</li>
-              <li className="text-white font-semibold text-lg hover:text-primary duration-300 cursor-pointer mb-6">About Us</li>
-              <li className="text-white font-semibold text-lg hover:text-primary duration-300 cursor-pointer mb-6">Contact Us</li>
+              <Link to="/search" onClick={toggleMenu(false)}>
+                <li className="text-white font-semibold text-lg hover:text-primary duration-300 cursor-pointer mb-6">Search</li>
+              </Link>
+              <Link to="/about-us" onClick={toggleMenu(false)}>
+                <li className="text-white font-semibold text-lg hover:text-primary duration-300 cursor-pointer mb-6">About Us</li>
+              </Link>
+              <Link to="/contact-us" onClick={toggleMenu(false)}>
+                <li className="text-white font-semibold text-lg hover:text-primary duration-300 cursor-pointer mb-6">Contact Us</li>
+              </Link>
             </ul>
           </div>
           <div className=" flex gap-6 mb-6">
