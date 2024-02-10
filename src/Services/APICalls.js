@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseURL = "https://egytravel.pildextech.cf/api/v1/";
+const baseURL = "https://egytravel.codepeak.live/api/v1/";
 
 export const postData = async (url, data) => {
   let result = [];
