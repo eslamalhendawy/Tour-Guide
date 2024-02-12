@@ -34,7 +34,9 @@ function Header() {
             </div>
             <ul className="hidden lg:flex items-center gap-4 xl:gap-8 xl:text-lg font-semibold text-[#00242D] bg-brownOrange px-6 py-2 rounded">
               <li className="hover:text-white duration-300 cursor-pointer">Trips</li>
+              <Link to="/sinuhe">
               <li className="hover:text-white duration-300 cursor-pointer">Sinuhe</li>
+              </Link>
               <li className="hover:text-white duration-300 cursor-pointer">Planner</li>
               <Link to="/search">
                 <li className="hover:text-white duration-300 cursor-pointer">Search</li>

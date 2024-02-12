@@ -21,7 +21,6 @@ function Login() {
 
   const handleLogin = async () => {
     let temp = await postData("auth/signin", { email, password });
-    console.log(temp);
     if (temp.status === "success") {
       localStorage.setItem("userToken", temp.token);
       setUserData({ name: temp.data.user.name, email: temp.data.user.email, loggedIn: true, visibleMenu: "none" });

@@ -1,5 +1,6 @@
 import { useAppContext } from "../Context/AppContext";
 import { useState } from "react";
+import { postData } from "../Services/APICalls";
 import Modal from "@mui/material/Modal";
 
 import { toast } from "react-toastify";
@@ -13,7 +14,7 @@ function ForgotPassword() {
     setUserData({ ...userData, visibleMenu: "none" });
   };
 
-  const sendEmail = () => {
+  const sendEmail = async () => {
     if(email === ""){
       toast.error("Enter your email address");
       return;
@@ -22,8 +23,15 @@ function ForgotPassword() {
       toast.error("Enter a valid email address");
       return;
     }
-    setUserData({ ...userData, visibleMenu: "confirmCode" });
-    console.log(email);
+    let temp = await postData("users/forgot-password", { email });
+    console.log(temp);
+    if(temp.status === "success"){
+      toast.success("Confirmation code sent to your email address");
+      setUserData({ ...userData, visibleMenu: "newPassword", email });
+    }
+    else{
+      toast.error("Make sure you entered the correct email address");
+    }
   }
 
   return (
