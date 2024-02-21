@@ -40,7 +40,7 @@ function TravelSlider() {
   return (
     <div className="bg-postage pt-12 pb-6 px-3">
       <div className="container mx-auto bg-white p-6 rounded-lg">
-        <h3 className="text-brownOrange text-2xl md:text-3xl text-center md:text-left font-bold mb-6">Recomended</h3>
+        <h3 className="text-brownOrange text-2xl md:text-3xl text-center md:text-left font-bold mb-6">Near Events</h3>
         <Slider data={data} />
       </div>
     </div>

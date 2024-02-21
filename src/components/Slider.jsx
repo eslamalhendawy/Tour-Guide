@@ -27,7 +27,7 @@ function Slider({ data }) {
       >
        {data.map((item, index) => {
         return (
-          <SwiperSlide key={index}>
+          <SwiperSlide className="mb-6" key={index}>
           <div className="p-3">
             <img src={item.Image} className="w-full h-40 object-cover" alt={item.name} />
             <h4 className="text-black text-lg font-bold mt-3">{item.name}</h4>

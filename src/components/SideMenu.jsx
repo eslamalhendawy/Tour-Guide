@@ -6,13 +6,17 @@ import SignUp from "./SignUp";
 import { Link } from "react-router-dom";
 
 function SideMenu() {
-  const { userData } = useAppContext();
+  const { userData, setUserData } = useAppContext();
   const [openMenu, setOpen] = useState(false);
   const toggleMenu = (openStatus) => (event) => {
     if (event.type === "keydown" && (event.key === "Tab" || event.key === "Shift")) {
       return;
     }
     setOpen(openStatus);
+  };
+  const logout = () => {
+    setUserData({ ...userData, loggedIn: false });
+    localStorage.removeItem("userToken");
   };
   return (
     <div className="lg:hidden">
@@ -39,8 +43,17 @@ function SideMenu() {
             </ul>
           </div>
           <div className=" flex gap-6 mb-6">
-            <Login />
-            <SignUp />
+            {userData.loggedIn ? (
+              <button onClick={logout} className="text-white font-semibold text-lg hover:text-primary duration-300 cursor-pointer flex items-center gap-2">
+                <i className="fa-solid fa-user"></i>
+                <span>{userData.name}</span>
+              </button>
+            ) : (
+              <>
+                <Login />
+                <SignUp />
+              </>
+            )}
           </div>
         </div>
       </Drawer>

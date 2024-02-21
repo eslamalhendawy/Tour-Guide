@@ -1,10 +1,10 @@
 import Hero from "./Hero";
 import PhoneApp from "./PhoneApp";
 import TravelSlider from "./TravelSlider";
-import TouristSection from "./TouristSection";
-import ToursSection from "./ToursSection";
-import HotelsSection from "./HotelsSection";
+import YouMayLike from "./YouMayLike";
+import CardSlider from "./CardSlider";
 import TravelWithUs from "./TravelWithUs";
+import NearEvents from "./NearEvents";
 
 
 function HomePage() {
@@ -13,9 +13,9 @@ function HomePage() {
       <Hero />
       <PhoneApp />
       <TravelSlider />
-      <TouristSection />
-      <ToursSection />
-      <HotelsSection />
+      <YouMayLike />
+      <CardSlider />
+      <NearEvents />
       <TravelWithUs />
     </div>
   );
