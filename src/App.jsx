@@ -14,6 +14,8 @@ import ContactUs from "./components/ContactUs";
 import Search from "./components/Search";
 import Sinuhe from "./components/Sinuhe";
 
+
+
 import "./App.css";
 
 function App() {
@@ -23,7 +25,7 @@ function App() {
     if (loggedIn) {
       getData("users/get-profile", localStorage.getItem("userToken"))
         .then((response) => {
-          setUserData({ name: response.data.user.name, email: response.data.user.email , loggedIn: true});
+          setUserData({ name: response.data.user.name, email: response.data.user.email, loggedIn: true });
         })
         .catch((error) => {
           console.log(error);

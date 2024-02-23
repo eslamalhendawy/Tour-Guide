@@ -1,6 +1,8 @@
+import { useTranslation } from "react-i18next";
 import heroImage from "/assets/kisspng-nefertiti-bust-wrinkle-rhytidectomy-face-nefertiti-5b308d4010a1a4 2.png";
 
 function Hero() {
+  const { t } = useTranslation();
   return (
     <div className="bg-postage">
       <div className="container mx-auto py-3 px-3 md:flex items-center">
