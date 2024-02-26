@@ -1,5 +1,6 @@
 import { useAppContext } from "../Context/AppContext";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import Modal from "@mui/material/Modal";
 import { putData } from "../Services/APICalls";
 
@@ -14,6 +15,8 @@ function NewPassword() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [code, setCode] = useState("");
+  const { t, i18n } = useTranslation();
+  const selectedLangauge = i18n.language;
   const handleClose = () => {
     setUserData({ ...userData, visibleMenu: "none" });
   };
@@ -61,27 +64,27 @@ function NewPassword() {
             <img src={key} alt="key" />
           </div>
           <div className="mb-6">
-            <h3 className="font-bold text-2xl text-center">Set New Password</h3>
+            <h3 className="font-bold text-2xl text-center">{t("setnewpassword")}</h3>
           </div>
-          <p className="text-center mb-4">Your new password must be different from previously used passwords.</p>
+          <p className="text-center mb-4">{t("yournewpassword")}</p>
           <div className="mb-3">
-            <p className="text-[#a3aab5] mb-2">Email</p>
-            <input onChange={(e) => setEmail(e.target.value)} className="border border-[#a3aab5] p-2 rounded-lg block w-full focus:outline-none" type="text" placeholder="Enter email" />
+            <p className={`text-[#a3aab5] mb-2 ${selectedLangauge === "ar" ? "text-right" : ""}`}>{t("email")}</p>
+            <input onChange={(e) => setEmail(e.target.value)} className={`border border-[#a3aab5] p-2 rounded-lg block w-full focus:outline-none ${selectedLangauge === "ar" ? "text-right" : ""}`} type="text" placeholder={t("email")} />
           </div>
           <div className="mb-3">
-            <p className="text-[#a3aab5] mb-2">New Password</p>
-            <input onChange={(e) => setPassword(e.target.value)} className="border border-[#a3aab5] p-2 rounded-lg block w-full focus:outline-none" type="password" placeholder="Enter new password" />
+            <p className={`text-[#a3aab5] mb-2 ${selectedLangauge === "ar" ? "text-right" : ""}`}>{t("newpassword")}</p>
+            <input onChange={(e) => setPassword(e.target.value)} className={`border border-[#a3aab5] p-2 rounded-lg block w-full focus:outline-none ${selectedLangauge === "ar" ? "text-right" : ""}`} type="password" placeholder={t("newpassword")} />
           </div>
           <div className="mb-4">
-            <p className="text-[#a3aab5] mb-2">Confirm Password</p>
-            <input onChange={(e) => setConfirmPassword(e.target.value)} className="border border-[#a3aab5] p-2 rounded-lg block w-full focus:outline-none" type="password" placeholder="Confirm New assword" />
+            <p className={`text-[#a3aab5] mb-2 ${selectedLangauge === "ar" ? "text-right" : ""}`}>{t("confirmpassword")}</p>
+            <input onChange={(e) => setConfirmPassword(e.target.value)} className={`border border-[#a3aab5] p-2 rounded-lg block w-full focus:outline-none ${selectedLangauge === "ar" ? "text-right" : ""}`} type="password" placeholder={t("confirmpassword")} />
           </div>
           <div className="mb-6">
-            <p className="text-[#a3aab5] mb-2">Confirmation Code</p>
-            <input onChange={(e) => setCode(e.target.value)} className="border border-[#a3aab5] p-2 rounded-lg block w-full focus:outline-none" type="text" placeholder="Enter code sent to your email" />
+            <p className={`text-[#a3aab5] mb-2 ${selectedLangauge === "ar" ? "text-right" : ""}`}>{t("confirmationcode")}</p>
+            <input onChange={(e) => setCode(e.target.value)} className={`border border-[#a3aab5] p-2 rounded-lg block w-full focus:outline-none ${selectedLangauge === "ar" ? "text-right" : ""}`} type="text" placeholder={t("confirmationcode")} />
           </div>
           <button onClick={changePassword} className="text-white bg-brownOrange block w-full hover:bg-secondary duration-300 sm:text-lg font-semibold py-1 px-8 rounded-3xl">
-            Reset Password
+            {t("resetpassword")}
           </button>
         </div>
       </div>

@@ -16,8 +16,14 @@ function Header() {
   const { userData, setUserData } = useAppContext();
   const { t, i18n } = useTranslation();
 
-  const changeLanguage = (lang) => {
-    i18n.changeLanguage(lang);
+  const changeLanguage = () => {
+    if (i18n.language === "en") {
+      i18n.changeLanguage("ar");
+      localStorage.setItem("language", "ar");
+    } else {
+      i18n.changeLanguage("en");
+      localStorage.setItem("language", "en");
+    }
   };
 
   const logout = () => {
@@ -36,11 +42,14 @@ function Header() {
           </Link>
           <div className="flex items-stretch gap-4">
             <div className="hidden lg:flex bg-brownOrange px-6 py-2 xl:text-lg rounded justify-center items-center font-bold cursor-pointer text-postage" onClick={() => changeLanguage("en")}>
+              <i className="fa-solid fa-globe"></i>
+            </div>
+            {/* <div className="hidden lg:flex bg-brownOrange px-6 py-2 xl:text-lg rounded justify-center items-center font-bold cursor-pointer text-postage" onClick={() => changeLanguage("en")}>
               E
             </div>
             <div className="hidden lg:flex bg-brownOrange px-6 py-2 xl:text-lg rounded justify-center items-center font-bold cursor-pointer text-postage" onClick={() => changeLanguage("ar")}>
               ع
-            </div>
+            </div> */}
             <ul className="hidden lg:flex items-center gap-4 xl:gap-8 xl:text-lg font-semibold text-[#00242D] bg-brownOrange px-6 py-2 rounded">
               <li className="hover:text-white duration-300 cursor-pointer">{t("trips")}</li>
               <Link to="/sinuhe">

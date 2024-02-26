@@ -1,4 +1,7 @@
+import { useTranslation } from "react-i18next";
 function TravelWithUs() {
+  const { t, i18n } = useTranslation();
+  const selectedLanguage = i18n.language;
   const list = [
     {
       img: "/assets/1f481-1f3fd.svg.png",
@@ -17,10 +20,12 @@ function TravelWithUs() {
   return (
     <div className="bg-postage pt-6 pb-20 px-3">
       <div className="container mx-auto bg-white p-6 rounded-lg">
-        <h3 className="text-brownOrange font-semibold text-xl md:text-2xl xl:text-3xl mb-3 uppercase">WHY TRAVEL WITH US</h3>
-        <div className="border-t-4 border-dotted border-brownOrange w-[30%] mb-3"></div>
-        <div className="border-t-4 border-dotted border-brownOrange w-[30%] mb-6"></div>
-        <h4 className="font-bold text-xl mb-8">Our reason to travel with us</h4>
+        <h3 className={`text-brownOrange font-semibold text-xl md:text-2xl xl:text-3xl mb-3 uppercase ${selectedLanguage === "ar" && "text-right"}`}>{t("whytravelwithus")}</h3>
+        <div className={`flex flex-col ${selectedLanguage === "ar" ? "items-end" : "items-start"}`}>
+          <div className="border-t-4 border-dotted border-brownOrange w-[30%] mb-3"></div>
+          <div className="border-t-4 border-dotted border-brownOrange w-[30%] mb-6"></div>
+        </div>
+        <h4 className={`font-bold text-xl mb-8 ${selectedLanguage === "ar" && "text-right"}`}>{t("ourreason")}</h4>
         <div className="lg:flex gap-6 mb-12">
           {list.map((item, index) => {
             return (

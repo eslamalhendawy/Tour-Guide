@@ -2,22 +2,23 @@ import { useTranslation } from "react-i18next";
 import heroImage from "/assets/kisspng-nefertiti-bust-wrinkle-rhytidectomy-face-nefertiti-5b308d4010a1a4 2.png";
 
 function Hero() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const selectedLanguage = i18n.language;
   return (
     <div className="bg-postage">
-      <div className="container mx-auto py-3 px-3 md:flex items-center">
+      <div className={`container mx-auto py-3 px-3 md:flex items-center ${selectedLanguage === "ar" && "flex-row-reverse"}`}>
         <div className="basis-2/3">
-          <h1 className="text-brownOrange font-bold text-3xl lg:text-5xl mt-6 mb-6 lg:mb-12 text-center md:text-left">Egy traveler your best way to have fun in Egypt</h1>
-          <p className="text-white text-lg text-center md:text-left mb-6 lg:mb-12">Egytraveler is designed to revolutionize the way you have fun in Egypt. Utilizing advanced computer vision and augmented reality technologies, it enhances your tourist experience by offering interactive and immersive adventures at famous landmarks and monuments. Explore different cities, book hotels, and delve into Egypt&apos;s rich history with our app as your trusted guide.</p>
-          <p className="text-center md:text-left text-white mb-3">
-            For a better experience <span className="text-brownOrange">download</span> our App
+          <h1 className={`text-brownOrange font-bold text-3xl lg:text-5xl mt-6 mb-6 lg:mb-12 text-center ${selectedLanguage === "ar" ? "md:text-right" : "md:text-left"}`}>{t("heroheader")}</h1>
+          <p className={`text-white text-lg text-center mb-6 lg:mb-12 ${selectedLanguage === "ar" ? "md:text-right" : "md:text-left"}`}>{t("herosubheader")}</p>
+          <p className={`text-center  text-white mb-3 ${selectedLanguage === "ar" ? "md:text-right" : "md:text-left"}`}>
+          {t("forabetterexperience")} <span className="text-brownOrange">{t("download")}</span> {t("ourapp")}
           </p>
-          <div className="flex gap-3 items-center justify-center md:justify-start">
-            <button className="flex gap-2 items-center text-white bg-[#212529] hover:bg-black duration-300 p-2 rounded-lg">
+          <div className={`flex gap-3 items-center justify-center md:justify-start ${selectedLanguage === "ar" ? "md:justify-end" : "md:justify-start"}`}>
+            <button className={`flex gap-2 items-center text-white bg-[#212529] hover:bg-black duration-300 p-2 rounded-lg ${selectedLanguage === "ar" && "flex-row-reverse"}`}>
               <i className="fa-brands fa-google-play text-lg lg:text-2xl"></i>
               <div className="uppercase text-left">
-                <p className="text-[9px] lg:text-[10px]">get egytravler on</p>
-                <p className="text-sm lg:text-base font-bold">google play</p>
+                <p className={`text-[9px] lg:text-[10px] ${selectedLanguage === "ar" && "text-right"}`}>{t("getegytravleron")}</p>
+                <p className={`text-sm lg:text-base font-bold ${selectedLanguage === "ar" && "text-right"}`}>{t("googleplay")}</p>
               </div>
             </button>
             {/* <button className="flex gap-2 items-center text-white bg-[#212529] hover:bg-black duration-300 p-2 rounded-lg">
