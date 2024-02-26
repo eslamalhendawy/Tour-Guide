@@ -13,6 +13,7 @@ import AboutUs from "./components/AboutUs";
 import ContactUs from "./components/ContactUs";
 import Search from "./components/Search";
 import Sinuhe from "./components/Sinuhe";
+import Events from "./components/Events";
 
 
 
@@ -43,6 +44,7 @@ function App() {
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/search" element={<Search />} />
           <Route path="/sinuhe" element={<Sinuhe />} />
+          <Route path="/event" element={<Events />} />
         </Routes>
         <Footer />
       </Router>

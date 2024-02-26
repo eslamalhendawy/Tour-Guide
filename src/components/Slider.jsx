@@ -1,10 +1,11 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
+import { Link } from "react-router-dom";
 
 import "swiper/css";
 import "swiper/css/pagination";
 
-function Slider({ data }) {
+function Slider({ data, type }) {
   return (
     <div>
       <Swiper
@@ -25,16 +26,18 @@ function Slider({ data }) {
           },
         }}
       >
-       {data.map((item, index) => {
-        return (
-          <SwiperSlide className="mb-6" key={index}>
-          <div className="p-3">
-            <img src={item.Image} className="w-full h-40 object-cover" alt={item.name} />
-            <h4 className="text-black text-lg font-bold mt-3">{item.name}</h4>
-          </div>
-          </SwiperSlide>
-        )
-       })}
+        {data.map((item, index) => {
+          return (
+            <SwiperSlide className="mb-6" key={index}>
+              <Link to={type === "event" ? "/event" : type === "recommended" ? "/recommended" : "/may-like"}>
+                <div className="p-3">
+                  <img src={item.Image} className="w-full h-40 object-cover" alt={item.name} />
+                  <h4 className="text-black text-lg font-bold mt-3">{item.name}</h4>
+                </div>
+              </Link>
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </div>
   );
