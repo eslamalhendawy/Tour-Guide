@@ -4,5 +4,19 @@
   "planner": "Planner",
   "search": "Search",
   "aboutus": "About us",
-  "contactus": "Contact us"
+  "contactus": "Contact us",
+  "signin": "Sign in",
+  "signup": "Sign up",
+  "createaccount": "Create account",
+  "name&surname": "Name & Surname",
+  "email": "Email",
+  "password": "Password",
+  "confirmpassword": "Confirm password",
+  "donthaveaccount": "Don't have an account?",
+  "alreadyhaveaccount": "Already have an account?",
+  "signupwithgoogle": "Sign up with Google",
+  "signinwithgoogle": "Sign in with Google",
+  "forgotpassword": "Forgot password?",
+  "resetpassword": "Reset password",
+  "sendconfirmationcode": "Send confirmation Code"
 }

@@ -4,5 +4,19 @@
   "planner": "مخطط",
   "search": "بحث",
   "aboutus": "من نحن",
-  "contactus": "تواصل معنا"
+  "contactus": "تواصل معنا",
+  "signin": "تسجيل الدخول",
+  "signup": "الاشتراك",
+  "createaccount": "إنشاء حساب",
+  "name&surname": "الاسم واللقب",
+  "email": "البريد الإلكتروني",
+  "password": "كلمة السر",
+  "confirmpassword": "تأكيد كلمة السر",
+  "donthaveaccount": "ليس لديك حساب؟",
+  "alreadyhaveaccount": "هل لديك حساب؟",
+  "signupwithgoogle": "الاشتراك بواسطة جوجل",
+  "signinwithgoogle": "تسجيل الدخول بواسطة جوجل",
+  "forgotpassword": "نسيت كلمة السر؟",
+  "resetpassword": "إعادة تعيين كلمة السر",
+  "sendconfirmationcode": "إرسال رمز التأكيد"
 }
