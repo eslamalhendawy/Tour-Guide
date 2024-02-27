@@ -1,7 +1,12 @@
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 function ContactUs() {
   const { t, i18n } = useTranslation();
   const selectedLanguage = i18n.language;
+  useEffect(() => {
+    document.title = "Egytravler | Contact Us";
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="bg-postage">
       <div className="container mx-auto py-3 px-3">

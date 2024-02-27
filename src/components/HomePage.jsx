@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Hero from "./Hero";
 import PhoneApp from "./PhoneApp";
 import TravelSlider from "./TravelSlider";
@@ -6,8 +7,11 @@ import CardSlider from "./CardSlider";
 import TravelWithUs from "./TravelWithUs";
 import NearEvents from "./NearEvents";
 
-
 function HomePage() {
+  useEffect(() => {
+    document.title = "Egytravler | Home";
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div>
       <Hero />

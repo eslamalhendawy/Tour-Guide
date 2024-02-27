@@ -14,6 +14,7 @@ import ContactUs from "./components/ContactUs";
 import Search from "./components/Search";
 import Sinuhe from "./components/Sinuhe";
 import Events from "./components/Events";
+import Place from "./components/Place";
 
 
 
@@ -45,6 +46,7 @@ function App() {
           <Route path="/search" element={<Search />} />
           <Route path="/sinuhe" element={<Sinuhe />} />
           <Route path="/event" element={<Events />} />
+          <Route path="/place" element={<Place />} />
         </Routes>
         <Footer />
       </Router>

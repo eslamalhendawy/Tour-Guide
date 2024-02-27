@@ -1,28 +1,33 @@
-import React from "react";
+import { useEffect } from "react";
 
 function Search() {
   const data = [
     {
       heading: "Mohamed Ali Mosque",
-      discription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ullamcorper, mi in venenatis rutrum.",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ullamcorper, mi in venenatis rutrum.",
       image: "/assets/9f03502a-8451-4a0f-9bb7-740a7ab4e9ba 1.png",
     },
     {
       heading: "Mohamed Ali Mosque",
-      discription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ullamcorper, mi in venenatis rutrum.",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ullamcorper, mi in venenatis rutrum.",
       image: "/assets/9f03502a-8451-4a0f-9bb7-740a7ab4e9ba 1.png",
     },
     {
       heading: "Mohamed Ali Mosque",
-      discription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ullamcorper, mi in venenatis rutrum.",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ullamcorper, mi in venenatis rutrum.",
       image: "/assets/9f03502a-8451-4a0f-9bb7-740a7ab4e9ba 1.png",
     },
     {
       heading: "Mohamed Ali Mosque",
-      discription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ullamcorper, mi in venenatis rutrum.",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ullamcorper, mi in venenatis rutrum.",
       image: "/assets/9f03502a-8451-4a0f-9bb7-740a7ab4e9ba 1.png",
     },
   ];
+
+  useEffect(() => {
+    document.title = "Egytravler | Search";
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="bg-postage">
       <div className="container mx-auto py-3 px-3 minHeight">
@@ -39,7 +44,7 @@ function Search() {
               <img src={item.image} className="md:max-w-[350px]" alt="" />
               <div className=" grow md:rounded-r-lg p-2 md:flex flex-col justify-center">
                 <h3 className="text-brownOrange text-2xl font-bold mb-3 text-center md:text-left">{item.heading}</h3>
-                <p className="text-center md:text-left mb-4 lg:w-[60%] 2xl:w-[35%]">{item.discription}</p>
+                <p className="text-center md:text-left mb-4 lg:w-[60%] 2xl:w-[35%]">{item.description}</p>
                 <div className="flex justify-end">
                   <button className="flex items-center gap-4 bg-brownOrange hover:bg-postage duration-300  text-white px-6 py-2 rounded-lg">
                     <span>More Details</span>
