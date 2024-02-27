@@ -26,11 +26,6 @@ function Header() {
     }
   };
 
-  const logout = () => {
-    setUserData({ ...userData, loggedIn: false });
-    localStorage.removeItem("userToken");
-  };
-
   return (
     <div className="bg-[#505050]">
       <div className="container mx-auto py-3 px-3">
@@ -44,12 +39,6 @@ function Header() {
             <div className="hidden lg:flex bg-brownOrange px-6 py-2 xl:text-lg rounded justify-center items-center font-bold cursor-pointer text-postage" onClick={() => changeLanguage("en")}>
               <i className="fa-solid fa-globe"></i>
             </div>
-            {/* <div className="hidden lg:flex bg-brownOrange px-6 py-2 xl:text-lg rounded justify-center items-center font-bold cursor-pointer text-postage" onClick={() => changeLanguage("en")}>
-              E
-            </div>
-            <div className="hidden lg:flex bg-brownOrange px-6 py-2 xl:text-lg rounded justify-center items-center font-bold cursor-pointer text-postage" onClick={() => changeLanguage("ar")}>
-              ع
-            </div> */}
             <ul className="hidden lg:flex items-center gap-4 xl:gap-8 xl:text-lg font-semibold text-[#00242D] bg-brownOrange px-6 py-2 rounded">
               <li className="hover:text-white duration-300 cursor-pointer">{t("trips")}</li>
               <Link to="/sinuhe">
@@ -66,9 +55,9 @@ function Header() {
                 <li className="hover:text-white duration-300 cursor-pointer">{t("contactus")}</li>
               </Link>
               {userData.loggedIn ? (
-                <li onClick={logout} className="hover:text-white duration-300 cursor-pointer">
-                  {userData.name}
-                </li>
+                <Link to="/profile">
+                  <li className="hover:text-white duration-300 cursor-pointer">{userData.name}</li>
+                </Link>
               ) : (
                 <>
                   <li>

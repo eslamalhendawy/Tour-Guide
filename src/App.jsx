@@ -15,6 +15,7 @@ import Search from "./components/Search";
 import Sinuhe from "./components/Sinuhe";
 import Events from "./components/Events";
 import Place from "./components/Place";
+import Profile from "./components/Profile";
 
 
 
@@ -47,6 +48,7 @@ function App() {
           <Route path="/sinuhe" element={<Sinuhe />} />
           <Route path="/event" element={<Events />} />
           <Route path="/place" element={<Place />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
         <Footer />
       </Router>
