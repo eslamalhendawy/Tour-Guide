@@ -60,5 +60,8 @@
   "history": "History",
   "phonenumber": "Phone Number",
   "address": "Address",
-  "save": "Save"
+  "save": "Save",
+  "editProfile": "Edit Profile",
+  "signout": "Sign out",
+  "deleteAccount": "Delete Account"
 }

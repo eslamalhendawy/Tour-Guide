@@ -1,22 +1,18 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useAppContext } from "../Context/AppContext";
-import { useNavigate } from "react-router-dom";
+
+import SettingsMenu from "./SettingsMenu";
+import InformationMenu from "./InformationMenu";
 
 import profileImg from "/assets/profile.png";
-import settingImg from "/assets/profile2.png";
+import EditMenu from "./EditMenu";
 
 const Profile = () => {
-  const navigate = useNavigate();
-  const { t, i18n } = useTranslation();
-  const { userData, setUserData } = useAppContext();
-  const selectedLanguage = i18n.language;
+  const { t } = useTranslation();
+  const { userData } = useAppContext();
   const [selected, setSelected] = useState("settings");
 
-  const logout = () => {
-    setUserData({ name: "", email: "", visibleMenu: "none", loggedIn: false });
-    navigate("/");
-  };
 
   return (
     <section className="bg-postage minHeight">
@@ -42,76 +38,13 @@ const Profile = () => {
           </div>
         </div>
         {selected === "settings" && (
-          <div className="bg-[#032730] px-4 py-6 rounded-lg">
-            <h4 className="text-white font-bold text-3xl mb-4">Settings</h4>
-            <div className="flex flex-col  gap-3">
-              <button onClick={() => setSelected("edit")} className="bg-brownOrange hover:bg-postage duration-300 py-2 px-16 text-white rounded-lg">
-                Edit Profile
-              </button>
-              <button onClick={() => setUserData({ ...userData, visibleMenu: "password" })} className="bg-brownOrange hover:bg-postage duration-300 py-2 px-16 text-white rounded-lg">
-                Change Password
-              </button>
-              <button onClick={logout} className="bg-brownOrange hover:bg-postage duration-300 py-2 px-16 text-white rounded-lg">
-                Sign Out
-              </button>
-              <button className="bg-brownOrange hover:bg-postage duration-300 py-2 px-16 text-white rounded-lg">Delete Account</button>
-            </div>
-          </div>
+          <SettingsMenu setSelected={setSelected} />
         )}
         {selected === "information" && (
-          <div className="bg-[#032730] px-4 py-6 rounded-lg flex flex-col lg:flex-row gap-6">
-            <div>
-              <div className="flex flex-col gap-3 mb-4">
-                <span className={`text-brownOrange font-semibold text-lg ${selectedLanguage === "ar" && "text-right"}`}>{t("fullname")}</span>
-                <input disabled className={`bg-postage p-3 rounded-xl text-white ${selectedLanguage === "ar" && "text-right"}`} type="text" placeholder={t("fullname")} value={userData.name} />
-              </div>
-              <div className="flex flex-col gap-3 mb-4">
-                <span className={`text-brownOrange font-semibold text-lg ${selectedLanguage === "ar" && "text-right"}`}>{t("email")}</span>
-                <input disabled className={`bg-postage p-3 rounded-xl text-white truncate ${selectedLanguage === "ar" && "text-right"}`} type="text" placeholder={t("email")} value={userData.email}  />
-              </div>
-              <div className="flex flex-col gap-3 mb-4">
-                <span className={`text-brownOrange font-semibold text-lg ${selectedLanguage === "ar" && "text-right"}`}>{t("phonenumber")}</span>
-                <input disabled className={`bg-postage p-3 rounded-xl text-white ${selectedLanguage === "ar" && "text-right"}`} type="text" placeholder={t("phonenumber")} />
-              </div>
-              <div className="flex flex-col gap-3">
-                <span className={`text-brownOrange font-semibold text-lg ${selectedLanguage === "ar" && "text-right"}`}>{t("address")}</span>
-                <input disabled className={`bg-postage p-3 rounded-xl text-white ${selectedLanguage === "ar" && "text-right"}`} type="text" placeholder={t("address")} />
-              </div>
-            </div>
-            <div className="flex ic justify-center">
-              <img src={settingImg} alt="" />
-            </div>
-          </div>
+          <InformationMenu />
         )}
         {selected === "edit" && (
-          <div className="bg-[#032730] px-4 py-6 rounded-lg ">
-            <div className="flex flex-col lg:flex-row gap-6 mb-4">
-              <div>
-                <div className="flex flex-col gap-3 mb-4">
-                  <span className={`text-brownOrange font-semibold text-lg ${selectedLanguage === "ar" && "text-right"}`}>{t("fullname")}</span>
-                  <input className={`bg-postage p-3 rounded-xl outline-none text-white ${selectedLanguage === "ar" && "text-right"}`} type="text" placeholder={t("fullname")} />
-                </div>
-                <div className="flex flex-col gap-3 mb-4">
-                  <span className={`text-brownOrange font-semibold text-lg ${selectedLanguage === "ar" && "text-right"}`}>{t("email")}</span>
-                  <input className={`bg-postage p-3 rounded-xl outline-none text-white ${selectedLanguage === "ar" && "text-right"}`} type="text" placeholder={t("email")} />
-                </div>
-                <div className="flex flex-col gap-3 mb-4">
-                  <span className={`text-brownOrange font-semibold text-lg ${selectedLanguage === "ar" && "text-right"}`}>{t("phonenumber")}</span>
-                  <input className={`bg-postage p-3 rounded-xl outline-none text-white ${selectedLanguage === "ar" && "text-right"}`} type="text" placeholder={t("phonenumber")} />
-                </div>
-                <div className="flex flex-col gap-3">
-                  <span className={`text-brownOrange font-semibold text-lg ${selectedLanguage === "ar" && "text-right"}`}>{t("address")}</span>
-                  <input className={`bg-postage p-3 rounded-xl outline-none text-white ${selectedLanguage === "ar" && "text-right"}`} type="text" placeholder={t("address")} />
-                </div>
-              </div>
-              <div className="flex ic justify-center">
-                <img src={settingImg} alt="" />
-              </div>
-            </div>
-            <div className="flex justify-center items-center">
-              <button className="bg-brownOrange hover:bg-postage duration-300 text-white py-3 px-12 rounded-lg">{t("save")}</button>
-            </div>
-          </div>
+          <EditMenu />
         )}
       </div>
     </section>

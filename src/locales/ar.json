@@ -60,5 +60,8 @@
   "history": "التاريخ",
   "phonenumber": "رقم الهاتف",
   "address": "العنوان",
-  "save": "حفظ"
+  "save": "حفظ",
+  "editProfile": "تعديل الملف الشخصي",
+  "signout": "تسجيل الخروج",
+  "deleteAccount": "حذف الحساب"
 }

@@ -1,6 +1,9 @@
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 function Search() {
+  const { t, i18n } = useTranslation();
+  const selectedLanguage = i18n.language;
   const data = [
     {
       heading: "Mohamed Ali Mosque",
@@ -31,7 +34,7 @@ function Search() {
   return (
     <div className="bg-postage">
       <div className="container mx-auto py-3 px-3 minHeight">
-        <h3 className="text-brownOrange text-4xl font-bold mt-20 mb-6">Search Page</h3>
+        <h3 className={`text-brownOrange text-4xl font-bold mt-20 mb-6 ${selectedLanguage === "ar" && "text-right"}`}>{t("search")}</h3>
         <div className="flex items-center mb-12">
           <input type="text" className="grow h-[40px] rounded-l-lg focus:outline-none px-1" />
           <div className="h-[40px] bg-brownOrange flex justify-center items-center px-4 rounded-r-lg">
