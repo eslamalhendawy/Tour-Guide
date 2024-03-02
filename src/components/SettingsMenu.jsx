@@ -2,15 +2,18 @@ import { useAppContext } from "../Context/AppContext";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
+import ChangePassword from "./ChangePassword";
+import DeleteAccount from "./DeleteAccount";
+
 
 const SettingsMenu = ({setSelected}) => {
   const navigate = useNavigate();
-  const { userData, setUserData } = useAppContext();
+  const { setUserData } = useAppContext();
   const { t, i18n } = useTranslation();
   const selectedLanguage = i18n.language;
 
   const logout = () => {
-    setUserData({ name: "", email: "", visibleMenu: "none", loggedIn: false });
+    setUserData({ name: "", email: "", phoneNumber: "", address: "", visibleMenu: "none", loggedIn: false });
     navigate("/");
   };
 
@@ -21,13 +24,11 @@ const SettingsMenu = ({setSelected}) => {
         <button onClick={() => setSelected("edit")} className="bg-brownOrange hover:bg-postage duration-300 py-2 px-16 text-white rounded-lg">
           {t("editProfile")}
         </button>
-        <button onClick={() => setUserData({ ...userData, visibleMenu: "password" })} className="bg-brownOrange hover:bg-postage duration-300 py-2 px-16 text-white rounded-lg">
-          {t("resetpassword")}
-        </button>
+        <ChangePassword />
         <button onClick={logout} className="bg-brownOrange hover:bg-postage duration-300 py-2 px-16 text-white rounded-lg">
           {t("signout")}
         </button>
-        <button className="bg-brownOrange hover:bg-postage duration-300 py-2 px-16 text-white rounded-lg">{t("deleteAccount")}</button>
+        <DeleteAccount />
       </div>
     </div>
   );

@@ -63,5 +63,9 @@
   "save": "Save",
   "editProfile": "Edit Profile",
   "signout": "Sign out",
-  "deleteAccount": "Delete Account"
+  "deleteAccount": "Delete Account",
+  "changePassword": "Change Password",
+  "currentPassword": "Current Password",
+  "deleteAccountText": "Are you sure you want to delete your account?",
+  "delete": "Delete"
 }

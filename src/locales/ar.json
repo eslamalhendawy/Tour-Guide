@@ -63,5 +63,9 @@
   "save": "حفظ",
   "editProfile": "تعديل الملف الشخصي",
   "signout": "تسجيل الخروج",
-  "deleteAccount": "حذف الحساب"
+  "deleteAccount": "حذف الحساب",
+  "changePassword": "تغيير كلمة السر",
+  "currentPassword": "كلمة السر الحالية",
+  "deleteAccountText": "هل أنت متأكد من أنك تريد حذف حسابك؟",
+  "delete": "حذف"
 }

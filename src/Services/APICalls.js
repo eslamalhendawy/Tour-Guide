@@ -43,3 +43,37 @@ export const putData = async (url, data) => {
     });
   return result;
 };
+
+export const updateData = async (url, data, token) => {
+  let results = [];
+  await axios
+    .put(baseURL + url, data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    .then((response) => {
+      results = response;
+    })
+    .catch((error) => {
+      results = error;
+    });
+  return results;
+};
+
+export const deleteData = async (url, data, token) => {
+  let results = [];
+  await axios
+    .delete(baseURL + url, data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    .then((response) => {
+      results = response;
+    })
+    .catch((error) => {
+      results = error;
+    });
+  return results;
+};
