@@ -47,7 +47,7 @@ const DeleteAccount = () => {
             </div>
             <p className="text-center mb-4">{t("deleteAccountText")}</p>
             <div className="mb-6">
-              <label className={`text-[#a3aab5] mb-2 ${selectedLanguage === "ar" ? "text-right" : ""}`}>{t("password")}</label>
+              <p className={`text-[#a3aab5] mb-2 ${selectedLanguage === "ar" ? "text-right" : ""}`}>{t("password")}</p>
               <input onChange={(e) => setPassword(e.target.value)} className={`border border-[#a3aab5] p-2 rounded-lg block w-full focus:outline-none ${selectedLanguage === "ar" ? "text-right" : ""}`} type="password" placeholder={t("password")} />
             </div>
             <div className="flex items-center justify-center">

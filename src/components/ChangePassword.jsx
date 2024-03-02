@@ -73,15 +73,15 @@ const ChangePassword = () => {
             </div>
             <p className="text-center mb-4">{t("yournewpassword")}</p>
             <div className="mb-3">
-              <label className={`text-[#a3aab5] mb-2 ${selectedLanguage === "ar" ? "text-right" : ""}`}>{t("currentPassword")}</label>
+              <p className={`text-[#a3aab5] mb-2 ${selectedLanguage === "ar" ? "text-right" : ""}`}>{t("currentPassword")}</p>
               <input onChange={(e) => setCurrentPassword(e.target.value)} className={`border border-[#a3aab5] p-2 rounded-lg block w-full focus:outline-none ${selectedLanguage === "ar" ? "text-right" : ""}`} type="password" placeholder={t("currentPassword")} />
             </div>
             <div className="mb-4">
-              <label className={`text-[#a3aab5] mb-2 ${selectedLanguage === "ar" ? "text-right" : ""}`}>{t("newpassword")}</label>
+              <p className={`text-[#a3aab5] mb-2 ${selectedLanguage === "ar" ? "text-right" : ""}`}>{t("newpassword")}</p>
               <input onChange={(e) => setNewPassword(e.target.value)} className={`border border-[#a3aab5] p-2 rounded-lg block w-full focus:outline-none ${selectedLanguage === "ar" ? "text-right" : ""}`} type="password" placeholder={t("newpassword")} />
             </div>
             <div className="mb-3">
-              <label className={`text-[#a3aab5] mb-2 ${selectedLanguage === "ar" ? "text-right" : ""}`}>{t("confirmpassword")}</label>
+              <p className={`text-[#a3aab5] mb-2 ${selectedLanguage === "ar" ? "text-right" : ""}`}>{t("confirmpassword")}</p>
               <input onChange={(e) => setConfirmPassword(e.target.value)} className={`border border-[#a3aab5] p-2 rounded-lg block w-full focus:outline-none ${selectedLanguage === "ar" ? "text-right" : ""}`} type="password" placeholder={t("confirmpassword")} />
             </div>
             <button onClick={changePassword} className="text-white bg-brownOrange block w-full hover:bg-secondary duration-300 sm:text-lg font-semibold py-1 px-8 rounded-3xl">
