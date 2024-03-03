@@ -1,3 +1,4 @@
+import { useAppContext } from "../Context/AppContext";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
@@ -14,6 +15,7 @@ const DeleteAccount = () => {
   const selectedLanguage = i18n.language;
   const [open, setOpen] = useState(false);
   const [password, setPassword] = useState("");
+  const { userData, setUserData } = useAppContext();
   const token = localStorage.getItem("userToken");
 
   const deleteAccount = async () => {
@@ -21,14 +23,15 @@ const DeleteAccount = () => {
       toast.error("Please enter your password to delete your account.");
       return;
     }
-    let temp = await deleteData("users/delete-account", { password }, token);
-    console.log(temp);
-    if(temp.status === 200) {
-      toast.success("Account deleted successfully");
+
+    let temp = await deleteData("users/delete-account", token, { password });
+    if (temp.status === 200) {
+      toast.info("Account deleted successfully");
       setOpen(false);
+      setUserData({ name: "", email: "", phoneNumber: "", address: "", loggedIn: false, visibleMenu: "none" });
       localStorage.removeItem("userToken");
       navigate("/");
-    }else{
+    } else {
       toast.error("Account deletion failed, please try again");
     }
   };

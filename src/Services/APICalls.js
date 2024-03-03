@@ -61,10 +61,11 @@ export const updateData = async (url, data, token) => {
   return results;
 };
 
-export const deleteData = async (url, data, token) => {
+export const deleteData = async (url, token, data) => {
   let results = [];
   await axios
-    .delete(baseURL + url, data, {
+    .delete(baseURL + url, {
+      data: data,
       headers: {
         Authorization: `Bearer ${token}`,
       },
