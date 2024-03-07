@@ -1,50 +1,29 @@
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import Slider from "./Slider";
+import { getData } from "../Services/APICalls";
+
+import PlaceSlider from "./PlaceSlider";
 
 function TravelSlider() {
+  const [fetching, setFetching] = useState(true);
+  const [places, setPlaces] = useState([]);
   const { t, i18n } = useTranslation();
   const selectedLanguage = i18n.language;
 
-  const data = [
-    {
-      name: "Alexandria",
-      Image: "/assets/e61a937d-94dd-48c8-8363-3f4160b2c55a 1.png",
-    },
-    {
-      name: "Cairo",
-      Image: "/assets/fa6f4aee-1e56-48bc-895c-37beda243a0c 1.png",
-    },
-    {
-      name: "Sinai",
-      Image: "/assets/desktop-wallpaper-i-see-how-moses-got-lost-here-top-of-mt-sinai-egypt-oc-sinai 1 (2).png",
-    },
-    {
-      name: "Alexandria",
-      Image: "/assets/e61a937d-94dd-48c8-8363-3f4160b2c55a 1.png",
-    },
-    {
-      name: "Alexandria",
-      Image: "/assets/e61a937d-94dd-48c8-8363-3f4160b2c55a 1.png",
-    },
-    {
-      name: "Cairo",
-      Image: "/assets/fa6f4aee-1e56-48bc-895c-37beda243a0c 1.png",
-    },
-    {
-      name: "Sinai",
-      Image: "/assets/desktop-wallpaper-i-see-how-moses-got-lost-here-top-of-mt-sinai-egypt-oc-sinai 1 (2).png",
-    },
-    {
-      name: "Alexandria",
-      Image: "/assets/e61a937d-94dd-48c8-8363-3f4160b2c55a 1.png",
-    },
-  ];
+  useEffect(() => {
+    const fetchData = async () => {
+      const temp = await getData("place");
+      setPlaces(temp.data.places);
+      setFetching(false);
+    };
+    fetchData();
+  }, []);
 
   return (
     <div className="bg-postage pt-12 pb-6 px-3">
       <div className="container mx-auto bg-white p-6 rounded-lg">
         <h3 className={`text-brownOrange text-2xl md:text-3xl text-center font-bold mb-6 ${selectedLanguage === "ar" ? "md:text-right" : "md:text-left"}`}>{t("youmaylike")}</h3>
-        <Slider data={data} type="place" />
+        {fetching ? <p>Loading...</p> : <PlaceSlider data={places} />}
       </div>
     </div>
   );

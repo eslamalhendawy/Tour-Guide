@@ -46,8 +46,8 @@ function App() {
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/search" element={<Search />} />
           <Route path="/sinuhe" element={<Sinuhe />} />
-          <Route path="/event" element={<Events />} />
-          <Route path="/place" element={<Place />} />
+          <Route path="/event/:id" element={<Events />} />
+          <Route path="/place/:id" element={<Place />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
         <Footer />

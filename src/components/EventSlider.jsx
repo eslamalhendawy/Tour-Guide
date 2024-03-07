@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/pagination";
 
-function Slider({ data, type }) {
+const EventSlider = ({ data }) => {
   return (
     <div>
       <Swiper
@@ -29,7 +29,7 @@ function Slider({ data, type }) {
         {data.map((item, index) => {
           return (
             <SwiperSlide className="mb-6" key={index}>
-              <Link to={type === "event" ? `/event/${item._id}` : "/place"}>
+              <Link to={`/event/${item._id}`}>
                 <div className="p-3">
                   <img src={item.images[0]} className="w-full h-40 object-cover" alt={item.name} />
                   <h4 className="text-black text-lg font-bold mt-3">{item.name}</h4>
@@ -41,6 +41,6 @@ function Slider({ data, type }) {
       </Swiper>
     </div>
   );
-}
+};
 
-export default Slider;
+export default EventSlider;
