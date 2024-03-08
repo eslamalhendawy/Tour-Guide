@@ -26,7 +26,6 @@ function Search() {
       return;
     }
     let temp = await getData(`place/search?search=${query}`);
-    console.log(temp.data);
     if (temp.status === "success") {
       setFetching(false);
       setResults(temp.data.places);

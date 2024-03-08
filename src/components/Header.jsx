@@ -36,7 +36,7 @@ function Header() {
             </div>
           </Link>
           <div className="flex items-stretch gap-4">
-            <div className="hidden lg:flex bg-brownOrange px-6 py-2 xl:text-lg rounded justify-center items-center font-bold cursor-pointer text-postage" onClick={() => changeLanguage("en")}>
+            <div className="hidden lg:flex bg-brownOrange px-6 py-2 xl:text-lg rounded justify-center items-center font-bold cursor-pointer text-postage" onClick={() => changeLanguage()}>
               <i className="fa-solid fa-globe"></i>
             </div>
             <ul className="hidden lg:flex items-center gap-4 xl:gap-8 xl:text-lg font-semibold text-[#00242D] bg-brownOrange px-6 py-2 rounded">
