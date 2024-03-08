@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { getData } from "../Services/APICalls";
-import Slider from "./Slider";
 import EventSlider from "./EventSlider";
 
 function TravelSlider() {

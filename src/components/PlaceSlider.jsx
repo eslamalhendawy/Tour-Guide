@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/pagination";
 
-const PlaceSlider = ({data}) => {
+const PlaceSlider = ({ data }) => {
   return (
     <div>
       <Swiper
@@ -40,7 +40,7 @@ const PlaceSlider = ({data}) => {
         })}
       </Swiper>
     </div>
-  )
-}
+  );
+};
 
-export default PlaceSlider
+export default PlaceSlider;

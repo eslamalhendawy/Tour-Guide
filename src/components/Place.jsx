@@ -30,8 +30,8 @@ const Place = () => {
       ) : (
         <>
           <div className="container mx-auto overflow-hidden">
-            <div className="bg-white">
-              <img className="h-full w-full" src={place.image} alt="" />
+            <div className="bg-white rounded-t-xl">
+              <img className="h-full w-full rounded-t-xl" src={place.image} alt="" />
             </div>
           </div>
           <div className="container mx-auto bg-white p-6 md:p-12">
