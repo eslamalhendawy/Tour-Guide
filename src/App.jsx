@@ -17,8 +17,6 @@ import Events from "./components/Events";
 import Place from "./components/Place";
 import Profile from "./components/Profile";
 
-
-
 import "./App.css";
 
 function App() {
@@ -28,7 +26,7 @@ function App() {
     if (loggedIn) {
       getData("users/get-profile", localStorage.getItem("userToken"))
         .then((response) => {
-          setUserData({ name: response.data.user.name, email: response.data.user.email, loggedIn: true });
+          setUserData({ name: response.data.user.name, email: response.data.user.email, address: response.data.user.address, avatar: response.data.user.avatar, loggedIn: true, visibleMenu: "none" });
         })
         .catch((error) => {
           console.log(error);

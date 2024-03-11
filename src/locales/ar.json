@@ -67,5 +67,9 @@
   "changePassword": "تغيير كلمة السر",
   "currentPassword": "كلمة السر الحالية",
   "deleteAccountText": "هل أنت متأكد من أنك تريد حذف حسابك؟",
-  "delete": "حذف"
+  "delete": "حذف",
+  "updateProfileImage": "تحديث صورة الملف الشخصي",
+  "chooseNewImage": "اختر صورة جديدة",
+  "upload": "رفع",
+  "update": "تحديث"
 }

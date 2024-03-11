@@ -46,7 +46,7 @@ const ChangePassword = () => {
       return;
     }
     let temp = await updateData("users/change-password", { currentPassword, newPassword, confirmPassword }, token);
-    if(temp.status === 200) {
+    if (temp.status === 200) {
       toast.success("Password changed successfully");
       setOpen(false);
       setUserData({ name: "", email: "", phoneNumber: "", address: "", visibleMenu: "none", loggedIn: false });

@@ -14,6 +14,7 @@ const SettingsMenu = ({setSelected}) => {
 
   const logout = () => {
     setUserData({ name: "", email: "", phoneNumber: "", address: "", visibleMenu: "none", loggedIn: false });
+    localStorage.clear();
     navigate("/");
   };
 

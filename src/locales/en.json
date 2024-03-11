@@ -67,5 +67,9 @@
   "changePassword": "Change Password",
   "currentPassword": "Current Password",
   "deleteAccountText": "Are you sure you want to delete your account?",
-  "delete": "Delete"
+  "delete": "Delete",
+  "updateProfileImage": "Update Profile Image",
+  "chooseNewImage": "Choose New Image",
+  "upload": "Upload",
+  "update": "Update"
 }

@@ -26,7 +26,7 @@ function Login() {
     let temp = await postData("auth/signin", { email, password });
     if (temp.status === "success") {
       localStorage.setItem("userToken", temp.token);
-      setUserData({ name: temp.data.user.name, email: temp.data.user.email, loggedIn: true, visibleMenu: "none" });
+      setUserData({ name: temp.data.user.name, email: temp.data.user.email, address: temp.data.user.address, avatar: temp.data.user.avatar, loggedIn: true, visibleMenu: "none" });
       toast.success("Logged in successfully");
     } else {
       toast.error("Login failed, please try again.");
