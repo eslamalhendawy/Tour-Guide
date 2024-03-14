@@ -14,17 +14,8 @@ const Profile = () => {
   const { t } = useTranslation();
   const { userData } = useAppContext();
   const [selected, setSelected] = useState("settings");
-  const token = localStorage.getItem("userToken");
-  const fileInput = useRef(null);
-  const [newImage, setNewImage] = useState(null);
 
-  const handleImageUpload = async () => {
-    if (!newImage) return;
-    const formData = new FormData();
-    formData.append("avatar", newImage);
-    let temp = await getData("users/edit-profile", formData, token);
-    console.log(temp);
-  };
+
 
   return (
     <section className="bg-postage minHeight">
