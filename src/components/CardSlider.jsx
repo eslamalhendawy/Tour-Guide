@@ -1,6 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import { Navigation } from "swiper/modules";
+import { Link } from "react-router-dom";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -10,17 +11,22 @@ function CardSlider() {
   const data = [
     {
       image: "/assets/e61a937d-94dd-48c8-8363-3f4160b2c55a 1.png",
-      header: "Tourist Egypt Tours",
+      header: "Egypt travel information",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vitae odio non metus interdum pulvinar. In mi tellus, scelerisque quis nulla.",
     },
     {
       image: "/assets/e61a937d-94dd-48c8-8363-3f4160b2c55a 1.png",
-      header: "Tourist Egypt Tours",
+      header: "Egypt travel information",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vitae odio non metus interdum pulvinar. In mi tellus, scelerisque quis nulla.",
     },
     {
       image: "/assets/e61a937d-94dd-48c8-8363-3f4160b2c55a 1.png",
-      header: "Tourist Egypt Tours",
+      header: "Egypt travel information",
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vitae odio non metus interdum pulvinar. In mi tellus, scelerisque quis nulla.",
+    },
+    {
+      image: "/assets/e61a937d-94dd-48c8-8363-3f4160b2c55a 1.png",
+      header: "Egypt travel information",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vitae odio non metus interdum pulvinar. In mi tellus, scelerisque quis nulla.",
     },
   ];
@@ -41,7 +47,9 @@ function CardSlider() {
                     <div className="border-t-4 border-dotted border-brownOrange w-[30%] mb-6"></div>
                     <p className="text-base mb-3">{item.text}</p>
                   </div>
-                  <button className="bg-brownOrange hover:bg-postage duration-300 text-lg text-white p-3 font-bold block mt-auto">KNOW MORE <i className="fa-solid fa-chevron-right"></i></button>
+                  <Link to={`/article/${1}`} className="bg-brownOrange hover:bg-postage duration-300 text-lg text-white p-3 font-bold block mt-auto w-fit">
+                    KNOW MORE <i className="fa-solid fa-chevron-right"></i>
+                  </Link>
                 </div>
               </div>
             </SwiperSlide>

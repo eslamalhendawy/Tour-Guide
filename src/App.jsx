@@ -16,6 +16,7 @@ import Sinuhe from "./components/Sinuhe";
 import Events from "./components/Events";
 import Place from "./components/Place";
 import Profile from "./components/Profile";
+import Article from "./components/Article";
 
 import "./App.css";
 
@@ -47,6 +48,7 @@ function App() {
           <Route path="/event/:id" element={<Events />} />
           <Route path="/place/:id" element={<Place />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/article/:id" element={<Article />} />
         </Routes>
         <Footer />
       </Router>
