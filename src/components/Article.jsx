@@ -1,6 +1,11 @@
+import { useEffect } from "react";
 import image from "/assets/e61a937d-94dd-48c8-8363-3f4160b2c55a 1 (2).png";
 
 const Article = () => {
+  useEffect(() => {
+    document.title = "Egytravler | Article";
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="bg-postage">
       <div className="">
