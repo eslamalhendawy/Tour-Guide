@@ -21,7 +21,7 @@ const SettingsMenu = ({setSelected}) => {
   return (
     <div className="bg-[#032730] px-4 py-6 rounded-lg">
       <h4 className={`text-white font-bold text-3xl mb-4 ${selectedLanguage === "ar" && "text-right"}`}>{t("settings")}</h4>
-      <div className="flex flex-col  gap-3">
+      <div className="flex flex-col gap-3">
         <button onClick={() => setSelected("edit")} className="bg-brownOrange hover:bg-postage duration-300 py-2 px-16 text-white rounded-lg">
           {t("editProfile")}
         </button>

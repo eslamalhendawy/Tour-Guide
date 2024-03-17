@@ -27,7 +27,15 @@ function App() {
     if (loggedIn) {
       getData("users/get-profile", localStorage.getItem("userToken"))
         .then((response) => {
-          setUserData({ name: response.data.user.name, email: response.data.user.email, address: response.data.user.address, avatar: response.data.user.avatar, loggedIn: true, visibleMenu: "none" });
+          setUserData({ name: response.data.user.name, 
+            email: response.data.user.email, 
+            address: response.data.user.address, 
+            avatar: response.data.user.avatar, 
+            favoritePlaces: response.data.user.favoritePlaces, 
+            favoriteArticles: response.data.user.favoriteArticles, 
+            loggedIn: true, 
+            visibleMenu: "none" 
+          });
         })
         .catch((error) => {
           console.log(error);

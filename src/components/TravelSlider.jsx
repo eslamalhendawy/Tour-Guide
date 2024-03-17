@@ -12,7 +12,7 @@ function TravelSlider() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const temp = await getData("place");
+      const temp = await getData("place/recomended");
       setPlaces(temp.data.places);
       setFetching(false);
     };

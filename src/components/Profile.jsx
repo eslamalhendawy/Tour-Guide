@@ -1,12 +1,11 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useAppContext } from "../Context/AppContext";
-import { getData } from "../Services/APICalls";
-import Modal from "@mui/material/Modal";
 
 import SettingsMenu from "./SettingsMenu";
 import InformationMenu from "./InformationMenu";
 import UpdateAvatar from "./UpdateAvatar";
+import Favourites from "./Favourites";
 
 import EditMenu from "./EditMenu";
 
@@ -30,14 +29,15 @@ const Profile = () => {
             <button onClick={() => setSelected("information")} className={`py-3 px-8  border border-brownOrange rounded-lg ${selected === "information" ? "bg-brownOrange" : "bg-transparent"}`}>
               {t("info")}
             </button>
-            <button onClick={() => setSelected("history")} className={`py-3 px-8  border border-brownOrange rounded-lg ${selected === "history" ? "bg-brownOrange" : "bg-transparent"}`}>
-              {t("history")}
+            <button onClick={() => setSelected("favorites")} className={`py-3 px-8  border border-brownOrange rounded-lg ${selected === "favorites" ? "bg-brownOrange" : "bg-transparent"}`}>
+              {t("favourites")}
             </button>
           </div>
         </div>
         {selected === "settings" && <SettingsMenu setSelected={setSelected} />}
         {selected === "information" && <InformationMenu />}
         {selected === "edit" && <EditMenu />}
+        {selected === "favorites" && <Favourites />}
       </div>
     </section>
   );

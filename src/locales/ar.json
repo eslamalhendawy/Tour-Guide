@@ -71,5 +71,8 @@
   "updateProfileImage": "تحديث صورة الملف الشخصي",
   "chooseNewImage": "اختر صورة جديدة",
   "upload": "رفع",
-  "update": "تحديث"
+  "update": "تحديث",
+  "favourites": "المفضلة",
+  "noFavouritesFound": "لم يتم العثور على مفضلة",
+  "moreDetails": "المزيد من التفاصيل"
 }

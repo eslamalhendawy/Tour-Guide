@@ -71,5 +71,8 @@
   "updateProfileImage": "Update Profile Image",
   "chooseNewImage": "Choose New Image",
   "upload": "Upload",
-  "update": "Update"
+  "update": "Update",
+  "favourites": "Favourites",
+  "noFavouritesFound": "No Favourites Found",
+  "moreDetails": "More Details"
 }

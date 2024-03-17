@@ -26,7 +26,16 @@ function Login() {
     let temp = await postData("auth/signin", { email, password });
     if (temp.status === "success") {
       localStorage.setItem("userToken", temp.token);
-      setUserData({ name: temp.data.user.name, email: temp.data.user.email, address: temp.data.user.address, avatar: temp.data.user.avatar, loggedIn: true, visibleMenu: "none" });
+      setUserData({
+        name: temp.data.user.name,
+        email: temp.data.user.email,
+        address: temp.data.user.address,
+        avatar: temp.data.user.avatar,
+        favoritePlaces: temp.data.user.favoritePlaces,
+        favoriteArticles: temp.data.user.favoriteArticles,
+        loggedIn: true,
+        visibleMenu: "none",
+      });
       toast.success("Logged in successfully");
     } else {
       toast.error("Login failed, please try again.");
@@ -36,7 +45,7 @@ function Login() {
   return (
     <div>
       <button onClick={handleOpen} className="bg-brownOrange border border-postage text-postage hover:bg-postage hover:text-white duration-300 xl:text-lg font-base py-1 px-8 rounded-lg">
-      {t("signin")}
+        {t("signin")}
       </button>
       <Modal open={userData.visibleMenu === "login"} onClose={handleClose}>
         <div className="flex justify-center items-center h-screen">
@@ -54,10 +63,10 @@ function Login() {
               <input onChange={(e) => setPassword(e.target.value)} className={`border border-[#a3aab5] p-2 rounded-lg block w-full focus:outline-none ${selectedLangauge === "ar" ? "text-right" : ""}`} type="password" placeholder={t("password")} />
             </div>
             <p onClick={() => setUserData({ ...userData, visibleMenu: "password" })} className="text-right text-[#a3aab5] hover:text-black duration-300 cursor-pointer mb-3">
-            {t("forgotpassword")}
+              {t("forgotpassword")}
             </p>
             <button onClick={handleLogin} className="text-white mb-2 bg-brownOrange block w-full hover:bg-secondary duration-300 sm:text-lg font-semibold py-1 px-8 rounded-3xl">
-            {t("signin")}
+              {t("signin")}
             </button>
             <p className="text-center text-[#a3aab5] mb-2">{t("or")}</p>
             <div className="text-[#a3aab5] border border-[#a3aab5] flex items-center w-full sm:text-lg font-semibold py-1 px-4 rounded-3xl  mb-2">
@@ -67,7 +76,7 @@ function Login() {
             <div className={`flex justify-center gap-2 ${selectedLangauge === "ar" ? "flex-row-reverse" : ""}`}>
               <p>{t("donthaveaccount")}</p>
               <button onClick={() => setUserData({ ...userData, visibleMenu: "signup" })} className="text-brownOrange hover:text-secondary duration-300  font-medium">
-              {t("signup")}
+                {t("signup")}
               </button>
             </div>
           </div>

@@ -78,3 +78,12 @@ export const deleteData = async (url, token, data) => {
     });
   return results;
 };
+
+export const addFavourite = async (url, token) => {
+  let results = [];
+  await axios.put(baseURL + url, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  })
+}
