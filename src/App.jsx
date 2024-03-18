@@ -29,16 +29,7 @@ function App() {
     if (loggedIn) {
       getData("users/get-profile", localStorage.getItem("userToken"))
         .then((response) => {
-          setUserData({ name: response.data.user.name, 
-            email: response.data.user.email, 
-            address: response.data.user.address, 
-            avatar: response.data.user.avatar, 
-            favoritePlaces: response.data.user.favoritePlaces, 
-            favoriteArticles: response.data.user.favoriteArticles,
-            userTrip: response.data.user.userTrips,
-            loggedIn: true, 
-            visibleMenu: "none" 
-          });
+          setUserData({ name: response.data.user.name, email: response.data.user.email, address: response.data.user.address, avatar: response.data.user.avatar, favoritePlaces: response.data.user.favoritePlaces, favoriteArticles: response.data.user.favoriteArticles, userTrip: response.data.user.userTrips, loggedIn: true, visibleMenu: "none" });
         })
         .catch((error) => {
           console.log(error);
@@ -47,7 +38,7 @@ function App() {
   }, []);
 
   return (
-    <div className="">
+    <>
       <Router>
         <Header />
         <Routes>
@@ -66,7 +57,7 @@ function App() {
         <Footer />
       </Router>
       <ToastContainer autoClose={2500} theme="dark" newestOnTop={true} />
-    </div>
+    </>
   );
 }
 
