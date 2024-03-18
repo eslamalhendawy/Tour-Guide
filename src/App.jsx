@@ -17,6 +17,8 @@ import Events from "./components/Events";
 import Place from "./components/Place";
 import Profile from "./components/Profile";
 import Article from "./components/Article";
+import Trips from "./components/Trips";
+import Trip from "./components/Trip";
 
 import "./App.css";
 
@@ -57,6 +59,8 @@ function App() {
           <Route path="/place/:id" element={<Place />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/article/:id" element={<Article />} />
+          <Route path="/trips" element={<Trips />} />
+          <Route path="/trip/:id" element={<Trip />} />
         </Routes>
         <Footer />
       </Router>

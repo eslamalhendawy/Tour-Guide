@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getData } from "../Services/APICalls";
 import Map from "react-map-gl";
-import map from "/assets/map.png";
 
 const Events = () => {
   const { id } = useParams();
@@ -22,9 +21,6 @@ const Events = () => {
     };
     fetchData();
   }, []);
-
-
-  const highlights = ["Entertainment - Spotlight unique, can't-miss performances, activities, games that will wow and engage attendees.", "Networking - Note opportunities to make valuable connections and strengthen relationships.", "Education - Promote insightful talks, workshops, etc. from experts that attendees will gain knowledge from.", "Entertainment - Spotlight unique, can't-miss performances, activities, games that will wow and engage attendees.", "Networking - Note opportunities to make valuable connections and strengthen relationships.", "Education - Promote insightful talks, workshops, etc. from experts that attendees will gain knowledge from.", "Entertainment - Spotlight unique, can't-miss performances, activities, games that will wow and engage attendees.", "Networking - Note opportunities to make valuable connections and strengthen relationships.", "Education - Promote insightful talks, workshops, etc. from experts that attendees will gain knowledge from."];
 
   return (
     <section className="bg-postage minHeight p-4">
@@ -53,7 +49,7 @@ const Events = () => {
               <div className="lg:basis-1/2">
                 <h3 className="capitalize text-brownOrange mb-6 text-xl md:text2xl font-bold">highlights Of Pyramids</h3>
                 <ul className="list-disc">
-                  {highlights.map((highlight, index) => (
+                  {event.highlights.map((highlight, index) => (
                     <li key={index}>{highlight}</li>
                   ))}
                 </ul>

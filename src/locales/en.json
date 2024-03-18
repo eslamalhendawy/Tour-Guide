@@ -73,6 +73,8 @@
   "upload": "Upload",
   "update": "Update",
   "favourites": "Favourites",
+  "FavouritePlaces": "Favourite Places",
+  "FavouriteArticles": "Favourite Articles",
   "noFavouritesFound": "No Favourites Found",
   "moreDetails": "More Details"
 }

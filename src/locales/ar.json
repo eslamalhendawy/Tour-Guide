@@ -73,6 +73,8 @@
   "upload": "رفع",
   "update": "تحديث",
   "favourites": "المفضلة",
+  "FavouritePlaces": "الأماكن المفضلة",
+  "FavouriteArticles": "المقالات المفضلة",
   "noFavouritesFound": "لم يتم العثور على مفضلة",
   "moreDetails": "المزيد من التفاصيل"
 }

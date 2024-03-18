@@ -4,29 +4,35 @@ import { useAppContext } from "../Context/AppContext";
 import { getData, deleteData } from "../Services/APICalls";
 import { useTranslation } from "react-i18next";
 
-const FavouriteItem = ({ place }) => {
+const FavouriteItem = ({ id, type }) => {
   const userToken = localStorage.getItem("userToken");
   const { userData, setUserData } = useAppContext();
 
   const [placeData, setPlaceData] = useState();
   const [loading, setLoading] = useState(true);
   
-  const { t, i18n } = useTranslation();
-  const selectedLanguage = i18n.language;
+  const { t } = useTranslation();
 
   useEffect(() => {
     const fetchData = async () => {
-      let temp = await getData(`place/${place}`, userToken);
-      console.log(temp);
-      setPlaceData(temp.data.place);
+      let temp = await getData(`${type === "place" ? "place" : "articles"}/${id}`, userToken);
+      if(type === "place"){
+        setPlaceData(temp.data.place);
+      }else{
+        setPlaceData(temp.data.article);
+      }
       setLoading(false);
     };
     fetchData();
   }, []);
 
   const removeFavourite = async () => {
-    let temp = await deleteData(`place/favorite/${place}`, userToken);
-    setUserData({ ...userData, favoritePlaces: temp.data.data.user.favoritePlaces });
+    let temp = await deleteData(`${type === "place" ? "place" : "articles"}/favorite/${id}`, userToken);
+    if(type === "place"){
+      setUserData({ ...userData, favoritePlaces: temp.data.data.user.favoritePlaces });
+    }else{
+      setUserData({ ...userData, favoriteArticles: temp.data.data.user.favoriteArticles });
+    }
   };
 
   return (
@@ -39,10 +45,10 @@ const FavouriteItem = ({ place }) => {
             <img src={placeData.image} className="h-full w-full rounded-l-xl" />
           </div>
           <div className="flex flex-col gap-4 text-white py-2 basis-2/3">
-            <h4 className="font-bold text-2xl">{placeData.name}</h4>
+            <h4 className="font-bold text-2xl">{type === "place" ? placeData.name : placeData.title}</h4>
             <div className="flex flex-row-reverse items-center gap-4 text-lg">
               <i onClick={removeFavourite} className="fa-solid fa-trash ml-auto hover:text-red-600 duration-200 cursor-pointer"></i>
-              <Link to={`/place/${place}`} className="bg-brownOrange hover:bg-postage duration-200 rounded-lg p-2" >{t("moreDetails")}</Link>
+              <Link to={`/${type === "place" ? "place" : "article"}/${id}`} className="bg-brownOrange hover:bg-postage duration-200 rounded-lg p-2" >{t("moreDetails")}</Link>
             </div>
           </div>
         </div>

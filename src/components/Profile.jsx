@@ -6,6 +6,7 @@ import SettingsMenu from "./SettingsMenu";
 import InformationMenu from "./InformationMenu";
 import UpdateAvatar from "./UpdateAvatar";
 import Favourites from "./Favourites";
+import FavouriteArticles from "./FavouriteArticles";
 
 import EditMenu from "./EditMenu";
 
@@ -13,8 +14,6 @@ const Profile = () => {
   const { t } = useTranslation();
   const { userData } = useAppContext();
   const [selected, setSelected] = useState("settings");
-
-
 
   return (
     <section className="bg-postage minHeight">
@@ -37,7 +36,12 @@ const Profile = () => {
         {selected === "settings" && <SettingsMenu setSelected={setSelected} />}
         {selected === "information" && <InformationMenu />}
         {selected === "edit" && <EditMenu />}
-        {selected === "favorites" && <Favourites />}
+        {selected === "favorites" && (
+          <div className="flex flex-col gap-6">
+            <Favourites />
+            <FavouriteArticles />
+          </div>
+        )}
       </div>
     </section>
   );

@@ -39,7 +39,6 @@ const Place = () => {
     }
   };
 
-  const highlights = ["Entertainment - Spotlight unique, can't-miss performances, activities, games that will wow and engage attendees.", "Networking - Note opportunities to make valuable connections and strengthen relationships.", "Education - Promote insightful talks, workshops, etc. from experts that attendees will gain knowledge from.", "Entertainment - Spotlight unique, can't-miss performances, activities, games that will wow and engage attendees.", "Networking - Note opportunities to make valuable connections and strengthen relationships.", "Education - Promote insightful talks, workshops, etc. from experts that attendees will gain knowledge from.", "Entertainment - Spotlight unique, can't-miss performances, activities, games that will wow and engage attendees.", "Networking - Note opportunities to make valuable connections and strengthen relationships.", "Education - Promote insightful talks, workshops, etc. from experts that attendees will gain knowledge from."];
   return (
     <section className="bg-postage minHeight p-4">
       {fetching ? (
@@ -70,9 +69,9 @@ const Place = () => {
             <p className="mb-6">{place.description}</p>
             <div className="flex flex-col lg:flex-row gap-6">
               <div className="lg:basis-1/2">
-                <h3 className="capitalize text-brownOrange mb-6 text-xl md:text2xl font-bold">highlights Of Pyramids</h3>
+                <h3 className="capitalize text-brownOrange mb-6 text-xl md:text2xl font-bold">highlights</h3>
                 <ul className="list-disc">
-                  {highlights.map((highlight, index) => (
+                  {place.highlights.map((highlight, index) => (
                     <li key={index}>{highlight}</li>
                   ))}
                 </ul>

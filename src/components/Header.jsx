@@ -13,7 +13,7 @@ import ChangeSuccess from "./ChangeSuccess";
 import logo from "/assets/6 1.png";
 
 function Header() {
-  const { userData, setUserData } = useAppContext();
+  const { userData } = useAppContext();
   const { t, i18n } = useTranslation();
 
   const changeLanguage = () => {
@@ -40,7 +40,7 @@ function Header() {
               <i className="fa-solid fa-globe"></i>
             </div>
             <ul className="hidden lg:flex items-center gap-4 xl:gap-8 xl:text-lg font-semibold text-[#00242D] bg-brownOrange px-6 py-2 rounded">
-              <li className="hover:text-white duration-300 cursor-pointer">{t("trips")}</li>
+              <Link to="/trips"><li className="hover:text-white duration-300 cursor-pointer">{t("trips")}</li></Link>
               <Link to="/sinuhe">
                 <li className="hover:text-white duration-300 cursor-pointer">{t("sinuhe")}</li>
               </Link>

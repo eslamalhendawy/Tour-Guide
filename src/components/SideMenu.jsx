@@ -45,7 +45,9 @@ function SideMenu() {
               </div>
             </div>
             <ul className={`${selectedLanguage === "ar" && "text-right"}`}>
-              <li className="text-white font-semibold text-lg hover:text-primary duration-300 cursor-pointer mb-6">{t("trips")}</li>
+              <Link to="/trips" onClick={toggleMenu(false)}>
+                <li className="text-white font-semibold text-lg hover:text-primary duration-300 cursor-pointer mb-6">{t("trips")}</li>
+              </Link>
               <li className="text-white font-semibold text-lg hover:text-primary duration-300 cursor-pointer mb-6">{t("sinuhe")}</li>
               <li className="text-white font-semibold text-lg hover:text-primary duration-300 cursor-pointer mb-6">{t("planner")}</li>
               <Link to="/search" onClick={toggleMenu(false)}>
