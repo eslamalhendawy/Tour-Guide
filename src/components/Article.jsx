@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getData, updateData, deleteData } from "../Services/APICalls";
 import { useAppContext } from "../Context/AppContext";
-import image from "/assets/e61a937d-94dd-48c8-8363-3f4160b2c55a 1 (2).png";
 
 const Article = () => {
   const { userData, setUserData } = useAppContext();
@@ -44,8 +43,8 @@ const Article = () => {
         <p className="text-white text-center pt-24 text-xl font-bold">Loading...</p>
       ) : (
         <>
-          <div className="">
-            <img className="" src={image} alt="" />
+          <div className="w-full">
+            <img className="w-full" src={article.image} alt="" />
           </div>
           <div className="container mx-auto px-4 pt-8 pb-20 text-white">
             <div className="flex items-center gap-4 mb-6">
