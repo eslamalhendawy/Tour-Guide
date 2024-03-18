@@ -10,6 +10,7 @@ const Place = () => {
   const [fetching, setFetching] = useState(true);
   const [place, setPlace] = useState();
   const [isFavorite, setIsFavorite] = useState(false);
+  const [inTrip, setInTrip] = useState(false);
   const userToken = localStorage.getItem("userToken");
   const apiToken = "pk.eyJ1IjoieW91c3NlZnNob3JiYWd5IiwiYSI6ImNsaXRlaWY5YzFsc20za28xc3I3bnpxdWgifQ.in7RNCLdcpC8uWOh5hodGw";
   useEffect(() => {
@@ -22,6 +23,7 @@ const Place = () => {
       const temp = await getData(`place/${id}`, userToken);
       setPlace(temp.data.place);
       setIsFavorite(temp.data.place.isFavorite);
+      setInTrip(temp.data.place.isTrip);
       setFetching(false);
     };
     fetchData();
@@ -36,6 +38,20 @@ const Place = () => {
       let temp = await updateData(`place/favorite/${id}`, {}, userToken);
       setUserData({ ...userData, favoritePlaces: temp.data.data.user.favoritePlaces });
       setIsFavorite(true);
+    }
+  };
+
+  const toggleTrip = async () => {
+    if (inTrip) {
+      let temp = await deleteData(`place/usertips/${id}`, userToken);
+      console.log(temp);
+      setUserData({ ...userData, userTrip: temp.data.data.user.userTrips });
+      setInTrip(false);
+    } else {
+      let temp = await updateData(`place/usertips/${id}`, {}, userToken);
+      console.log(temp);
+      setUserData({ ...userData, userTrip: temp.data.data.user.userTrips });
+      setInTrip(true);
     }
   };
 
@@ -55,7 +71,11 @@ const Place = () => {
               <div className="mb-3 md:mb-0">
                 <div className="flex items-center gap-4 mb-3">
                   <h3 className="text-brownOrange text-xl md:text-3xl capitalize">{place.name}</h3>
-                  {userData.loggedIn && <i onClick={toggleFavourite} className={`fa-heart text-2xl text-[#fb001a] cursor-pointer ${isFavorite ? "fa-solid" : "fa-regular"}`}></i>}
+                  {userData.loggedIn && (
+                    <>
+                      <i onClick={toggleFavourite} className={`fa-heart text-2xl text-[#fb001a] cursor-pointer ${isFavorite ? "fa-solid" : "fa-regular"}`}></i> <i onClick={toggleTrip} className={`fa-bookmark text-2xl text-postage cursor-pointer ${inTrip ? "fa-solid" : "fa-regular"}`}></i>
+                    </>
+                  )}
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <i className="fa-solid fa-location-dot text-brownOrange"></i>

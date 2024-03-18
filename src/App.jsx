@@ -34,7 +34,8 @@ function App() {
             address: response.data.user.address, 
             avatar: response.data.user.avatar, 
             favoritePlaces: response.data.user.favoritePlaces, 
-            favoriteArticles: response.data.user.favoriteArticles, 
+            favoriteArticles: response.data.user.favoriteArticles,
+            userTrip: response.data.user.userTrips,
             loggedIn: true, 
             visibleMenu: "none" 
           });

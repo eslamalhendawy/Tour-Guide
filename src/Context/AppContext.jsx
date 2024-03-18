@@ -12,6 +12,7 @@ export const AppProvider = ({ children }) => {
     visibleMenu: "none",
     favoritePlaces: [],
     favoriteArticles: [],
+    userTrip: [],
     loggedIn: false,
   });
   return <AppContext.Provider value={{ userData, setUserData }}>{children}</AppContext.Provider>;

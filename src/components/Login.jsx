@@ -33,6 +33,7 @@ function Login() {
         avatar: temp.data.user.avatar,
         favoritePlaces: temp.data.user.favoritePlaces,
         favoriteArticles: temp.data.user.favoriteArticles,
+        userTrip: temp.data.user.userTrips,
         loggedIn: true,
         visibleMenu: "none",
       });
