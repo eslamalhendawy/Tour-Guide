@@ -44,12 +44,10 @@ const Place = () => {
   const toggleTrip = async () => {
     if (inTrip) {
       let temp = await deleteData(`place/usertips/${id}`, userToken);
-      console.log(temp);
       setUserData({ ...userData, userTrip: temp.data.data.user.userTrips });
       setInTrip(false);
     } else {
       let temp = await updateData(`place/usertips/${id}`, {}, userToken);
-      console.log(temp);
       setUserData({ ...userData, userTrip: temp.data.data.user.userTrips });
       setInTrip(true);
     }

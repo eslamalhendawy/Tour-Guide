@@ -76,5 +76,7 @@
   "FavouritePlaces": "Favourite Places",
   "FavouriteArticles": "Favourite Articles",
   "noFavouritesFound": "No Favourites Found",
-  "moreDetails": "More Details"
+  "moreDetails": "More Details",
+  "myTrip": "My Trip",
+  "noItemsInTrip": "No Items In Trip"
 }

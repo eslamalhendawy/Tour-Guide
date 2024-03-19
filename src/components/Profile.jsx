@@ -7,6 +7,7 @@ import InformationMenu from "./InformationMenu";
 import UpdateAvatar from "./UpdateAvatar";
 import Favourites from "./Favourites";
 import FavouriteArticles from "./FavouriteArticles";
+import UserTrip from "./UserTrip";
 
 import EditMenu from "./EditMenu";
 
@@ -38,6 +39,7 @@ const Profile = () => {
         {selected === "edit" && <EditMenu />}
         {selected === "favorites" && (
           <div className="flex flex-col gap-6">
+            <UserTrip />
             <Favourites />
             <FavouriteArticles />
           </div>
