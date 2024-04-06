@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useAppContext } from "../Context/AppContext";
 
@@ -15,6 +15,11 @@ const Profile = () => {
   const { t } = useTranslation();
   const { userData } = useAppContext();
   const [selected, setSelected] = useState("settings");
+
+  useEffect(() => {
+    document.title = "Egytravler | Profile";
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <section className="bg-postage minHeight">

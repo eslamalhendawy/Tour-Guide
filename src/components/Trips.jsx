@@ -11,6 +11,11 @@ const Trips = () => {
   const selectedLanguage = i18n.language;
 
   useEffect(() => {
+    document.title = "Egytravler | Trips";
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     const fetchTrips = async () => {
       const response = await getData("trips");
       setTrips(response.data.trips);
