@@ -40,11 +40,15 @@ function Header() {
               <i className="fa-solid fa-globe"></i>
             </div>
             <ul className="hidden lg:flex items-center gap-4 xl:gap-8 xl:text-lg font-semibold text-[#00242D] bg-brownOrange px-6 py-2 rounded">
-              <Link to="/trips"><li className="hover:text-white duration-300 cursor-pointer">{t("trips")}</li></Link>
-              <Link to="/sinuhe">
-                <li className="hover:text-white duration-300 cursor-pointer">{t("sinuhe")}</li>
+              <Link to="/trips">
+                <li className="hover:text-white duration-300 cursor-pointer">{t("trips")}</li>
               </Link>
-              <li className="hover:text-white duration-300 cursor-pointer">{t("planner")}</li>
+              <Link to="/articles">
+                <li className="hover:text-white duration-300 cursor-pointer">{t("articles")}</li>
+              </Link>
+              <Link to="/places">
+                <li className="hover:text-white duration-300 cursor-pointer">{t("places")}</li>
+              </Link>
               <Link to="/search">
                 <li className="hover:text-white duration-300 cursor-pointer">{t("search")}</li>
               </Link>

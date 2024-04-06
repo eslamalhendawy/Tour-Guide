@@ -35,7 +35,7 @@ function Search() {
   return (
     <div className="bg-postage">
       <div className="container mx-auto py-3 px-3 minHeight">
-        <h3 className={`text-brownOrange text-4xl font-bold mt-20 mb-6 ${selectedLanguage === "ar" && "text-right"}`}>{t("search")}</h3>
+        <h3 className={`text-brownOrange text-4xl font-bold mt-12 mb-6 ${selectedLanguage === "ar" && "text-right"}`}>{t("search")}</h3>
         <div className={`flex items-center mb-12 ${selectedLanguage === "ar" && "flex-row-reverse"}`}>
           <input type="text" className={`grow h-[50px]  focus:outline-none px-2 text-lg ${selectedLanguage === "ar" ? "rounded-r-lg text-right" : "rounded-l-lg"}`} placeholder={`${selectedLanguage === "ar" ? "ابحث هنا" : "Search here..."}`} onChange={(e) => setQuery(e.target.value)} />
           <button onClick={searchHandler} className={`h-[50px] bg-brownOrange flex justify-center items-center px-4  cursor-pointer hover:bg-[#ad733b] duration-200 ${selectedLanguage === "ar" ? "rounded-l-lg" : "rounded-r-lg"}`}>

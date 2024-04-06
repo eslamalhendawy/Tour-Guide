@@ -37,7 +37,7 @@ const UpdateAvatar = () => {
   return (
     <>
       <div className="mt-[-50px] relative">
-        <img className="max-w-[230px] rounded-full" src={userData.avatar} alt="" />
+        <img className="max-w-[230px] max-h-[230px] rounded-full" src={userData.avatar} alt="" />
         <div onClick={() => setOpen(true)} className="absolute right-0 top-[70%] bg-white size-[30px] flex justify-center items-center rounded-full group cursor-pointer">
           <i className="fa-solid fa-pen text-postage group-hover:text-brownOrange duration-300"></i>
         </div>

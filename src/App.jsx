@@ -19,6 +19,8 @@ import Profile from "./components/Profile";
 import Article from "./components/Article";
 import Trips from "./components/Trips";
 import Trip from "./components/Trip";
+import ArticlesPage from "./components/ArticlesPage";
+import PlacesPage from "./components/PlacesPage";
 
 import "./App.css";
 
@@ -46,7 +48,8 @@ function App() {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/search" element={<Search />} />
-          <Route path="/sinuhe" element={<Sinuhe />} />
+          <Route path="/articles" element={<ArticlesPage />} />
+          <Route path="/places" element={<PlacesPage />} />
           <Route path="/event/:id" element={<Events />} />
           <Route path="/place/:id" element={<Place />} />
           <Route path="/profile" element={<Profile />} />

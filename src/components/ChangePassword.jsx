@@ -58,7 +58,7 @@ const ChangePassword = () => {
 
   return (
     <>
-      <button onClick={() => setOpen(true)} className="bg-brownOrange hover:bg-postage duration-300 py-2 px-16 text-white rounded-lg">
+      <button onClick={() => setOpen(true)} className="bg-brownOrange hover:bg-postage duration-300 py-2 px-16 w-[240px] mx-auto text-white rounded-lg">
         {t("changePassword")}
       </button>
       <Modal open={open} onClose={() => setOpen(false)}>

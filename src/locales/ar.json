@@ -78,5 +78,8 @@
   "noFavouritesFound": "لم يتم العثور على مفضلة",
   "moreDetails": "المزيد من التفاصيل",
   "myTrip": "رحلتي",
-  "noItemsInTrip": "لا توجد عناصر في الرحلة"
+  "noItemsInTrip": "لا توجد عناصر في الرحلة",
+  "places": "الأماكن",
+  "articles": "المقالات",
+  "seeAll": "عرض الكل"
 }

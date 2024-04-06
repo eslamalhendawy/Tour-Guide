@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import { Navigation } from "swiper/modules";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { getData } from "../Services/APICalls";
 
 import "swiper/css";
@@ -12,6 +13,8 @@ import "swiper/css/navigation";
 function CardSlider() {
   const [articles, setArticles] = useState([]);
   const userToken = localStorage.getItem("userToken");
+  const { t, i18n } = useTranslation();
+  const selectedLanguage = i18n.language;
   useEffect(() => {
     const fetchArticles = async () => {
       const response = await getData("articles", userToken);
@@ -21,11 +24,17 @@ function CardSlider() {
   }, []);
   return (
     <div className="bg-postage py-6 px-3">
-      <div className="container mx-auto flex flex-col md:flex-row md:items-stretch bg-white rounded-lg">
-        <Swiper className="container " slidesPerGroup={1} navigation={true} modules={[Pagination, Navigation]}>
+      <div className="container mx-auto   rounded-lg">
+        <div className={`flex items-center justify-between bg-white mb-3 p-4 rounded-xl ${selectedLanguage === "ar" && "flex-row-reverse"}`}>
+          <h3 className={`text-brownOrange text-2xl md:text-3xl text-center font-bold ${selectedLanguage === "ar" ? "md:text-right" : "md:text-left"}`}>{t("articles")}</h3>
+          <Link to="/articles" className="block text-center text-brownOrange font-bold text-lg">
+            {t("seeAll")}
+          </Link>
+        </div>
+        <Swiper className="container" slidesPerGroup={1} navigation={true} modules={[Pagination, Navigation]}>
           {articles.map((item, index) => (
             <SwiperSlide key={index}>
-              <div className="flex flex-col md:flex-row items-stretch">
+              <div className="flex flex-col md:flex-row items-stretch bg-white">
                 <div className="w-full rounded-l-lg">
                   <img className="h-full w-full rounded-t-lg md:rounded-t-none md:rounded-l-lg" src={item.image} alt="" />
                 </div>
