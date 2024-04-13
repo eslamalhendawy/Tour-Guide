@@ -13,7 +13,6 @@ const PlacesPage = () => {
   useEffect(() => {
     getData("place")
       .then((response) => {
-        console.log(response.data);
         setArticles(response.data.places);
         setLoading(false);
       })
@@ -21,7 +20,6 @@ const PlacesPage = () => {
         console.log(error);
       });
   }, []);
-  console.log(articles);
 
   useEffect(() => {
     document.title = "Egytravler | Places";
@@ -37,7 +35,7 @@ const PlacesPage = () => {
         ) : (
           <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
             {articles.map((article) => (
-              <Link to={`/article/${article._id}`} key={article._id}>
+              <Link to={`/place/${article._id}`} key={article._id}>
                 <div className="flex flex-col gap-4 bg-white p-2 rounded-lg mb-4">
                   <div className="max-w-[300px] h-[175px] mx-auto">
                     <img src={article.image} alt="" className="w-full h-full object-cover rounded-lg" />

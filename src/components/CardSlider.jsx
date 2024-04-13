@@ -35,8 +35,8 @@ function CardSlider() {
           {articles.map((item, index) => (
             <SwiperSlide key={index}>
               <div className="flex flex-col md:flex-row items-stretch bg-white">
-                <div className="w-full rounded-l-lg">
-                  <img className="h-full w-full rounded-t-lg md:rounded-t-none md:rounded-l-lg" src={item.image} alt="" />
+                <div className="rounded-l-lg md:rounded-l-none md:basis-1/2 max-h-[650px]">
+                  <img className="w-full rounded-t-lg md:rounded-t-none md:rounded-l-lg max-h-[650px]" src={item.image} alt="" />
                 </div>
                 <div className="p-8">
                   <div className="mb-12">

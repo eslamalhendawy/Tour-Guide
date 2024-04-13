@@ -48,10 +48,10 @@ function SideMenu() {
               <Link to="/trips" onClick={toggleMenu(false)}>
                 <li className="text-white font-semibold text-lg hover:text-primary duration-300 cursor-pointer mb-6">{t("trips")}</li>
               </Link>
-              <Link to="/articles"  onClick={toggleMenu(false)}>
+              <Link to="/articles" onClick={toggleMenu(false)}>
                 <li className="text-white font-semibold text-lg hover:text-primary duration-300 cursor-pointer mb-6">{t("articles")}</li>
               </Link>
-              <Link to="/places"  onClick={toggleMenu(false)}>
+              <Link to="/places" onClick={toggleMenu(false)}>
                 <li className="text-white font-semibold text-lg hover:text-primary duration-300 cursor-pointer mb-6">{t("places")}</li>
               </Link>
               <Link to="/search" onClick={toggleMenu(false)}>

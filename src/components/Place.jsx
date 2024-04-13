@@ -53,6 +53,17 @@ const Place = () => {
     }
   };
 
+  const handleLocation = () => {
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition((position) => {
+        let lat = position.coords.latitude;
+        let long = position.coords.longitude;
+        console.log(lat, long);
+        window.location.href = `https://www.google.com/maps/dir/${lat},${long}/${place.latitude},${place.longitude}`;
+      })
+    }
+  }
+
   return (
     <section className="bg-postage minHeight p-4">
       {fetching ? (
@@ -80,25 +91,27 @@ const Place = () => {
                   <span>Location of the events</span>
                 </div>
               </div>
-              <a href="#map" className="bg-brownOrange hover:bg-postage duration-300 text-white py-2 px-8 rounded-lg">
-                View Map
-              </a>
+              <button onClick={handleLocation} className="bg-brownOrange hover:bg-postage duration-300 text-white py-2 px-8 rounded-lg">
+                View Directions
+              </button>
             </div>
             <p className="mb-6">{place.description}</p>
             <div className="flex flex-col lg:flex-row gap-6">
-              <div className="lg:basis-1/2">
-                <h3 className="capitalize text-brownOrange mb-6 text-xl md:text2xl font-bold">highlights</h3>
-                <ul className="list-disc">
-                  {place.highlights.map((highlight, index) => (
-                    <li key={index}>{highlight}</li>
-                  ))}
-                </ul>
-              </div>
+              {place.highlights.length > 0 && (
+                <div className="lg:basis-1/2">
+                  <h3 className="capitalize text-brownOrange mb-6 text-xl md:text2xl font-bold">highlights</h3>
+                  <ul className="list-disc">
+                    {place.highlights.map((highlight, index) => (
+                      <li key={index}>{highlight}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
               <div className="lg:basis-1/2">
                 <h3 className="capitalize text-brownOrange mb-2 text-xl md:text2xl font-bold">Maps</h3>
                 <div className="flex items-center gap-2 text-sm mb-4">
                   <i className="fa-solid fa-location-dot text-brownOrange"></i>
-                  <span>Location of Pyramids</span>
+                  <span>Location of {place.name}</span>
                 </div>
                 <div id="map" className="overflow-hidden">
                   <Map
@@ -107,7 +120,7 @@ const Place = () => {
                     initialViewState={{
                       longitude: place.longitude,
                       latitude: place.latitude,
-                      zoom: 10,
+                      zoom: 13,
                     }}
                     style={{ width: "100%", height: "300px" }}
                     mapStyle="mapbox://styles/mapbox/streets-v9"
