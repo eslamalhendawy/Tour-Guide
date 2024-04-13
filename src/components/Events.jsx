@@ -22,6 +22,17 @@ const Events = () => {
     fetchData();
   }, []);
 
+  const handleLocation = () => {
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition((position) => {
+        let lat = position.coords.latitude;
+        let long = position.coords.longitude;
+        console.log(lat, long);
+        window.location.href = `https://www.google.com/maps/dir/${lat},${long}/${event.latitude},${event.longitude}`;
+      })
+    }
+  }
+
   return (
     <section className="bg-postage minHeight p-4">
       {fetching ? (
@@ -42,12 +53,12 @@ const Events = () => {
                   <span>Location of the events</span>
                 </div>
               </div>
-              <a href="#map" className="bg-brownOrange hover:bg-postage duration-300 text-white py-2 px-8 rounded-lg">View Directions</a>
+              <button onClick={handleLocation} className="bg-brownOrange hover:bg-postage duration-300 text-white py-2 px-8 rounded-lg">View Directions</button>
             </div>
             <p className="mb-6">{event.description}</p>
             <div className="flex flex-col lg:flex-row gap-6">
               <div className="lg:basis-1/2">
-                <h3 className="capitalize text-brownOrange mb-6 text-xl md:text2xl font-bold">highlights Of Pyramids</h3>
+                <h3 className="capitalize text-brownOrange mb-6 text-xl md:text2xl font-bold">highlights Of {event.name}</h3>
                 <ul className="list-disc">
                   {event.highlights.map((highlight, index) => (
                     <li key={index}>{highlight}</li>
