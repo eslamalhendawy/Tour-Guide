@@ -33,7 +33,7 @@ const Place = () => {
       setFetching(false);
     };
     fetchData();
-  }, [fetching,id]);
+  }, [id]);
 
   useEffect(() => {
     const fetchData = async () => {
