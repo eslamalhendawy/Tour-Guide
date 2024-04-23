@@ -4,11 +4,16 @@ import { useParams } from "react-router-dom";
 import { getData, updateData, deleteData } from "../Services/APICalls";
 import Map from "react-map-gl";
 
+import PlaceSlider from "./PlaceSlider";
+import axios from "axios";
+
 const Place = () => {
   const { userData, setUserData } = useAppContext();
   const { id } = useParams();
   const [fetching, setFetching] = useState(true);
+  const [fetching2, setFetching2] = useState(true);
   const [place, setPlace] = useState();
+  const [recommendations, setRecommendations] = useState([]);
   const [isFavorite, setIsFavorite] = useState(false);
   const [inTrip, setInTrip] = useState(false);
   const userToken = localStorage.getItem("userToken");
@@ -28,6 +33,17 @@ const Place = () => {
     };
     fetchData();
   }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      let temp = await axios.get(`https://recomend.codepeak.live/recommend/${place.id}`);
+      setRecommendations(temp.data.recommendations);
+      setFetching2(false);
+    };
+    if (!fetching) {
+      fetchData();
+    }
+  }, [place]);
 
   const toggleFavourite = async () => {
     if (isFavorite) {
@@ -54,15 +70,15 @@ const Place = () => {
   };
 
   const handleLocation = () => {
-    if(navigator.geolocation){
+    if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         let lat = position.coords.latitude;
         let long = position.coords.longitude;
         console.log(lat, long);
         window.location.href = `https://www.google.com/maps/dir/${lat},${long}/${place.latitude},${place.longitude}`;
-      })
+      });
     }
-  }
+  };
 
   return (
     <section className="bg-postage minHeight p-4">
@@ -96,7 +112,7 @@ const Place = () => {
               </button>
             </div>
             <p className="mb-6">{place.description}</p>
-            <div className="flex flex-col lg:flex-row gap-6">
+            <div className="flex flex-col lg:flex-row gap-6 mb-6">
               {place.highlights.length > 0 && (
                 <div className="lg:basis-1/2">
                   <h3 className="capitalize text-brownOrange mb-6 text-xl md:text2xl font-bold">highlights</h3>
@@ -127,6 +143,16 @@ const Place = () => {
                   />
                 </div>
               </div>
+            </div>
+            <div>
+              {fetching2 ? (
+                <p>Loading...</p>
+              ) : (
+                <>
+                  <h3 className="capitalize text-brownOrange mb-6 text-xl md:text2xl font-bold">Recommendations</h3>
+                  {recommendations.length > 0 ? <PlaceSlider data={recommendations} /> : <p>No recommendations available</p>}
+                </>
+              )}
             </div>
           </div>
         </>

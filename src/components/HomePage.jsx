@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import Hero from "./Hero";
 import PhoneApp from "./PhoneApp";
-import TravelSlider from "./TravelSlider";
 import YouMayLike from "./YouMayLike";
 import CardSlider from "./CardSlider";
 import TravelWithUs from "./TravelWithUs";
@@ -16,7 +15,7 @@ function HomePage() {
     <div>
       <Hero />
       <PhoneApp />
-      <TravelSlider />
+      {/* <TravelSlider /> */}
       <YouMayLike />
       <CardSlider />
       <NearEvents />
