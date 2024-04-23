@@ -24,6 +24,7 @@ const Place = () => {
   }, [fetching]);
 
   useEffect(() => {
+    setFetching(true);
     const fetchData = async () => {
       const temp = await getData(`place/${id}`, userToken);
       setPlace(temp.data.place);
@@ -32,7 +33,7 @@ const Place = () => {
       setFetching(false);
     };
     fetchData();
-  }, []);
+  }, [fetching,id]);
 
   useEffect(() => {
     const fetchData = async () => {
