@@ -13,6 +13,37 @@ function Search() {
   const [empty, setEmpty] = useState(true);
   const [query, setQuery] = useState("");
   const [fetching, setFetching] = useState(true);
+  const [categories, setCategories] = useState([
+    {
+      name: "All",
+      id: "",
+    },
+    {
+      name: "Ecotourism",
+      id: "65f504187bd323b0249c51e0",
+    },
+    {
+      name: "Cultural",
+      id: "65f5041c7bd323b0249c51e2",
+    },
+    {
+      name: "Leisure",
+      id: "65f504237bd323b0249c51e4",
+    },
+    {
+      name: "Medical",
+      id: "65f504277bd323b0249c51e6",
+    },
+    {
+      name: "Sports",
+      id: "65f5042a7bd323b0249c51e8",
+    },
+    {
+      name: "Religious",
+      id: "6619a09681b958670554951b",
+    },
+  ]);
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   useEffect(() => {
     document.title = "Egytravler | Search";
@@ -20,12 +51,14 @@ function Search() {
   }, []);
 
   const searchHandler = async () => {
+    console.log(selectedCategory);
     setEmpty(false);
     if (query.trim() === "") {
       toast.error("Please enter a valid search query");
       return;
     }
-    let temp = await getData(`place/search?search=${query}`);
+    let temp = await getData(`place/search?search=${query}&category=${selectedCategory}`);
+    console.log(temp);
     if (temp.status === "success") {
       setFetching(false);
       setResults(temp.data.places);
@@ -38,6 +71,13 @@ function Search() {
         <h3 className={`text-brownOrange text-4xl font-bold mt-12 mb-6 ${selectedLanguage === "ar" && "text-right"}`}>{t("search")}</h3>
         <div className={`flex items-center mb-12 ${selectedLanguage === "ar" && "flex-row-reverse"}`}>
           <input type="text" className={`grow h-[50px]  focus:outline-none px-2 text-lg ${selectedLanguage === "ar" ? "rounded-r-lg text-right" : "rounded-l-lg"}`} placeholder={`${selectedLanguage === "ar" ? "ابحث هنا" : "Search here..."}`} onChange={(e) => setQuery(e.target.value)} />
+          <select className="h-[50px] outline-none" onChange={(e) => setSelectedCategory(e.target.value)}>
+            {categories.map((category, index) => (
+              <option key={index} value={category.id}>
+                {category.name}
+              </option>
+            ))}
+          </select>
           <button onClick={searchHandler} className={`h-[50px] bg-brownOrange flex justify-center items-center px-4  cursor-pointer hover:bg-[#ad733b] duration-200 ${selectedLanguage === "ar" ? "rounded-l-lg" : "rounded-r-lg"}`}>
             <i className="fa-solid fa-magnifying-glass text-white"></i>
           </button>

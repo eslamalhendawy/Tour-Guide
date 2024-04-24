@@ -76,7 +76,7 @@ const Place = () => {
         let lat = position.coords.latitude;
         let long = position.coords.longitude;
         console.log(lat, long);
-        window.location.href = `https://www.google.com/maps/dir/${lat},${long}/${place.latitude},${place.longitude}`;
+        window.open(`https://www.google.com/maps/dir/${lat},${long}/${place.latitude},${place.longitude}`, '_blank');
       });
     }
   };
