@@ -60,7 +60,10 @@ function Header() {
               </Link>
               {userData.loggedIn ? (
                 <Link to="/profile">
+                  <div className="flex items-center justify-center gap-1">
+                  <img className="size-[30px] rounded-full" src={userData.avatar} alt="" />
                   <li className="hover:text-white duration-300 cursor-pointer">{userData.name}</li>
+                  </div>
                 </Link>
               ) : (
                 <>

@@ -56,7 +56,6 @@ function SignUp() {
       return;
     }
     let temp = await postData("auth/signup", { name, email, password, passwordConfirm: confirmPass });
-    console.log(temp);
     if(temp.status === "success"){
       localStorage.setItem("userToken", temp.token);      
       setUserData({ name: temp.data.user.name, email: temp.data.user.email, loggedIn: true, visibleMenu: "none" });

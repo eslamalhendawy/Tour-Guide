@@ -23,8 +23,8 @@ const Trip = () => {
           <p className="text-center p-24 text-xl font-bold">Loading...</p>
         ) : (
           <div className="flex flex-col">
-            <div className="  ">
-              <img className="" src={trip.image} alt="" />
+            <div className="h-[350px] md:h-[650px]">
+              <img className="w-full h-full" src={trip.image} alt="" />
             </div>
             <div className="flex flex-col p-6">
               <div>

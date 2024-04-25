@@ -43,8 +43,8 @@ const Article = () => {
         <p className="text-white text-center pt-24 text-xl font-bold">Loading...</p>
       ) : (
         <>
-          <div className="w-full">
-            <img className="w-full" src={article.image} alt="" />
+          <div className="container mx-auto h-[350px] md:h-[650px]">
+            <img className="w-full h-full" src={article.image} alt="" />
           </div>
           <div className="container mx-auto px-4 pt-8 pb-20 text-white">
             <div className="flex items-center gap-4 mb-6">

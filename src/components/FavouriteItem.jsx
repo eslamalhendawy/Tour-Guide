@@ -47,12 +47,12 @@ const FavouriteItem = ({ id, type }) => {
       {loading ? (
         <p className="text-white">Loading...</p>
       ) : (
-        <div className="border border-white pr-3 rounded-xl flex items-stretch gap-4 max-w-[350px]">
-          <div className="basis-1/3">
+        <div className="border border-white overflow-hidden rounded-xl flex flex-col lg:flex-row items-stretch gap-4 max-w-[350px]">
+          <div className="basis-1/3 w-full">
             <img src={placeData.image} className="h-full w-full rounded-l-xl" />
           </div>
-          <div className="flex flex-col gap-4 text-white py-2 basis-2/3">
-            <h4 className="font-bold text-2xl">{type === "place" ? placeData.name : type === "trip" ? placeData.name : placeData.title}</h4>
+          <div className="flex flex-col gap-4 text-white p-2 basis-2/3 ">
+            <h4 className="font-bold text-2xl lg:w-[200px] truncate">{type === "place" ? placeData.name : type === "trip" ? placeData.name : placeData.title}</h4>
             <div className="flex flex-row-reverse items-center gap-4 text-lg">
               <i onClick={removeFavourite} className="fa-solid fa-trash ml-auto hover:text-red-600 duration-200 cursor-pointer"></i>
               <Link to={`/${type === "article" ? "article" : "place"}/${id}`} className="bg-brownOrange hover:bg-postage duration-200 rounded-lg p-2">

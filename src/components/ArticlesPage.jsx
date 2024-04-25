@@ -20,7 +20,6 @@ const ArticlesPage = () => {
         console.log(error);
       });
   }, []);
-  console.log(articles);
 
   useEffect(() => {
     document.title = "Egytravler | Articles";
@@ -36,16 +35,16 @@ const ArticlesPage = () => {
         ) : (
           <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
             {articles.map((article) => (
-              <Link to={`/article/${article._id}`} key={article._id}>
-                <div className="flex flex-col gap-4 bg-white p-2 rounded-lg mb-4">
-                  <div className="max-w-[300px] h-[175px] mx-auto">
+              <div key={article._id} className="flex flex-col gap-4 bg-white p-2 rounded-lg mb-4">
+                <Link to={`/article/${article._id}`} >
+                  <div className="w-full h-[175px] mx-auto">
                     <img src={article.image} alt="" className="w-full h-full object-cover rounded-lg" />
                   </div>
                   <div className="flex flex-col gap-2">
                     <h3 className="text-brownOrange text-2xl text-center font-bold">{article.title}</h3>
                   </div>
-                </div>
-              </Link>
+                </Link>
+              </div>
             ))}
           </div>
         )}

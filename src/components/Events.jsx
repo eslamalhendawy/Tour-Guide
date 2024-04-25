@@ -40,7 +40,7 @@ const Events = () => {
       ) : (
         <>
           <div className="container mx-auto overflow-hidden">
-            <div className="bg-white">
+            <div className="bg-white h-[350px] md:h-[650px]">
               <img className="h-full w-full" src={event.images[0]} alt="" />
             </div>
           </div>

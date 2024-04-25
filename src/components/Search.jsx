@@ -50,13 +50,12 @@ function Search() {
     window.scrollTo(0, 0);
   }, []);
 
-  const searchHandler = async () => {
-    console.log(selectedCategory);
-    setEmpty(false);
+  const searchHandler = async () => {   
     if (query.trim() === "") {
       toast.error("Please enter a valid search query");
       return;
     }
+    setEmpty(false);
     let temp = await getData(`place/search?search=${query}&category=${selectedCategory}`);
     console.log(temp);
     if (temp.status === "success") {
@@ -69,7 +68,7 @@ function Search() {
     <div className="bg-postage">
       <div className="container mx-auto py-3 px-3 minHeight">
         <h3 className={`text-brownOrange text-4xl font-bold mt-12 mb-6 ${selectedLanguage === "ar" && "text-right"}`}>{t("search")}</h3>
-        <div className={`flex items-center mb-12 ${selectedLanguage === "ar" && "flex-row-reverse"}`}>
+        <div className={`flex w-[60%] items-center mb-12 ${selectedLanguage === "ar" && "flex-row-reverse ml-auto"}`}>
           <input type="text" className={`grow h-[50px]  focus:outline-none px-2 text-lg ${selectedLanguage === "ar" ? "rounded-r-lg text-right" : "rounded-l-lg"}`} placeholder={`${selectedLanguage === "ar" ? "ابحث هنا" : "Search here..."}`} onChange={(e) => setQuery(e.target.value)} />
           <select className="h-[50px] outline-none" onChange={(e) => setSelectedCategory(e.target.value)}>
             {categories.map((category, index) => (
@@ -83,11 +82,11 @@ function Search() {
           </button>
         </div>
         {empty ? null : fetching ? (
-          <div className="bg-white rounded-lg p-4">Loading...</div>
+          <div className="bg-white rounded-lg p-4 w-[80%]">Loading...</div>
         ) : (
           <>
-            <div className="bg-white rounded-lg p-4 mb-6">{results.length} Result(s) Found</div>
-            <div className="mb-12">
+            <div className={`bg-white rounded-lg p-4 mb-6 w-[80%] ${selectedLanguage === "ar" && "ml-auto"}`}>{results.length} Result(s) Found</div>
+            <div className={`mb-12 w-[80%] ${selectedLanguage === "ar" && "ml-auto"}`}>
               {results.length > 0 &&
                 results.map((item, index) => (
                   <div key={index} className="flex flex-col md:flex-row items-center md:items-stretch rounded-lg mb-8 bg-white">

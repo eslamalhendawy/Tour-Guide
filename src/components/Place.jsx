@@ -75,7 +75,6 @@ const Place = () => {
       navigator.geolocation.getCurrentPosition((position) => {
         let lat = position.coords.latitude;
         let long = position.coords.longitude;
-        console.log(lat, long);
         window.open(`https://www.google.com/maps/dir/${lat},${long}/${place.latitude},${place.longitude}`, '_blank');
       });
     }
@@ -88,8 +87,8 @@ const Place = () => {
       ) : (
         <>
           <div className="container mx-auto overflow-hidden">
-            <div className="bg-white">
-              <img className=" w-full" src={place.image} alt="" />
+            <div className="bg-white h-[350px] md:h-[650px]">
+              <img className="w-full h-full" src={place.image} alt="" />
             </div>
           </div>
           <div className="container mx-auto bg-white p-6 md:p-12">

@@ -16,7 +16,6 @@ const PlacesPage = () => {
   useEffect(() => {
     getData(`place?page=${currentPage}`)
       .then((response) => {
-        console.log(response);
         setArticles(response.data.places);
         setNumberPages(response.numberOfPages);
         setLoading(false);
@@ -30,7 +29,6 @@ const PlacesPage = () => {
     document.title = "Egytravler | Places";
     window.scrollTo(0, 0);
   }, [currentPage]);
-
 
   const handlePageChange = (selectedPage) => {
     setCurrentPage(selectedPage.selected + 1);
@@ -47,20 +45,20 @@ const PlacesPage = () => {
           <>
             <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
               {articles.map((article) => (
-                <Link to={`/place/${article._id}`} key={article._id}>
-                  <div className="flex flex-col gap-4 bg-white p-2 rounded-lg mb-4">
-                    <div className="max-w-[300px] h-[175px] mx-auto">
+                <div key={article._id} className="flex flex-col gap-4 bg-white p-2 rounded-lg mb-4">
+                  <Link className="h-full block" to={`/place/${article._id}`}>
+                    <div className="w-full h-[175px] mx-auto">
                       <img src={article.image} alt="" className="w-full h-full object-cover rounded-lg" />
                     </div>
                     <div className="flex flex-col gap-2">
                       <h3 className="text-brownOrange text-center text-lg font-bold">{article.name}</h3>
                     </div>
-                  </div>
-                </Link>
+                  </Link>
+                </div>
               ))}
             </div>
             <div className="flex items-center justify-center my-8">
-            <ReactPaginate className="text-white font-bold flex gap-2 text-xl " breakLabel="..." nextLabel=">" pageCount={numberPages} pageRangeDisplayed={1} previousLabel="<" onPageChange={handlePageChange} activeClassName={"active"} containerClassName={"pagination"} />
+              <ReactPaginate className="text-white font-bold flex gap-2 text-xl " breakLabel="..." nextLabel=">" pageCount={numberPages} pageRangeDisplayed={1} previousLabel="<" onPageChange={handlePageChange} activeClassName={"active"} containerClassName={"pagination"} />
             </div>
           </>
         )}
