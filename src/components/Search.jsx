@@ -68,9 +68,9 @@ function Search() {
     <div className="bg-postage">
       <div className="container mx-auto py-3 px-3 minHeight">
         <h3 className={`text-brownOrange text-4xl font-bold mt-12 mb-6 ${selectedLanguage === "ar" && "text-right"}`}>{t("search")}</h3>
-        <div className={`flex w-[60%] items-center mb-12 ${selectedLanguage === "ar" && "flex-row-reverse ml-auto"}`}>
-          <input type="text" className={`grow h-[50px]  focus:outline-none px-2 text-lg ${selectedLanguage === "ar" ? "rounded-r-lg text-right" : "rounded-l-lg"}`} placeholder={`${selectedLanguage === "ar" ? "ابحث هنا" : "Search here..."}`} onChange={(e) => setQuery(e.target.value)} />
-          <select className="h-[50px] outline-none" onChange={(e) => setSelectedCategory(e.target.value)}>
+        <div className={`flex lg:w-[60%]  items-center mb-12 ${selectedLanguage === "ar" && "flex-row-reverse ml-auto"}`}>
+          <input type="text" className={`grow h-[50px]  focus:outline-none px-1 text-lg ${selectedLanguage === "ar" ? "rounded-r-lg text-right" : "rounded-l-lg"}`} placeholder={`${selectedLanguage === "ar" ? "ابحث هنا" : "Search here..."}`} onChange={(e) => setQuery(e.target.value)} />
+          <select className="h-[50px] w-[50px] lg:w-[100px] outline-none" onChange={(e) => setSelectedCategory(e.target.value)}>
             {categories.map((category, index) => (
               <option key={index} value={category.id}>
                 {category.name}

@@ -11,6 +11,7 @@ import NewPassword from "./NewPassword";
 import ChangeSuccess from "./ChangeSuccess";
 
 import logo from "/assets/6 1.png";
+import { useEffect } from "react";
 
 function Header() {
   const { userData } = useAppContext();
@@ -61,8 +62,14 @@ function Header() {
               {userData.loggedIn ? (
                 <Link to="/profile">
                   <div className="flex items-center justify-center gap-1">
-                  <img className="size-[30px] rounded-full" src={userData.avatar} alt="" />
-                  <li className="hover:text-white duration-300 cursor-pointer">{userData.name}</li>
+                    {userData.avatar === "default.jpg" ? (
+                      <div className="size-[30px] rounded-full bg-white flex items-center justify-center capitalize">
+                        <span className="text-brownOrange">{userData.name[0]}</span>
+                      </div>
+                    ) : (
+                      <img className="size-[30px] rounded-full" src={userData.avatar} alt="" />
+                    )}
+                    <li className="hover:text-white duration-300 cursor-pointer">{userData.name}</li>
                   </div>
                 </Link>
               ) : (

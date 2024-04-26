@@ -18,26 +18,32 @@ const UpdateAvatar = () => {
   const [open, setOpen] = useState(false);
 
   const updateHandler = async () => {
-    if(newImage === null){
+    if (newImage === null) {
       toast.error("Please select an image to upload");
       return;
     }
+    toast.info("Updating profile image, please wait...");
     const formData = new FormData();
     formData.append("avatar", newImage);
     let temp = await updateData("users/edit-profile", formData, token);
-    if(temp.status === 200){
-      setUserData({...userData, avatar: temp.data.data.user.avatar});
+    if (temp.status === 200) {
+      setUserData({ ...userData, avatar: temp.data.data.user.avatar });
       toast.success("Profile image updated successfully");
       setOpen(false);
-    }else{
+    } else {
       toast.error("Profile image update failed, please try again");
     }
-  }
-
+  };
   return (
     <>
       <div className="mt-[-50px] relative">
-        <img className="w-[230px] h-[230px]  rounded-full" src={userData.avatar} alt="" />
+        {userData.avatar === "default.jpg" ? (
+          <div className="size-[130px] md:size-[230px] rounded-full bg-white flex items-center justify-center capitalize">
+            <span className="text-brownOrange text-6xl">{userData.name[0]}</span>
+          </div>
+        ) : (
+          <img className="size-[130px] md:size-[230px] rounded-full" src={userData.avatar} alt="" />
+        )}
         <div onClick={() => setOpen(true)} className="absolute right-0 top-[70%] bg-white size-[30px] flex justify-center items-center rounded-full group cursor-pointer">
           <i className="fa-solid fa-pen text-postage group-hover:text-brownOrange duration-300"></i>
         </div>
@@ -57,7 +63,9 @@ const UpdateAvatar = () => {
               <input className="hidden" type="file" ref={fileInput} onChange={(e) => setNewImage(e.target.files[0])} />
             </div>
             <div className="flex items-center justify-center">
-              <button onClick={updateHandler} className="bg-brownOrange hover:bg-postage duration-200 text-white py-2 px-6 rounded-xl font-semibold">{t("update")}</button>
+              <button onClick={updateHandler} className="bg-brownOrange hover:bg-postage duration-200 text-white py-2 px-6 rounded-xl font-semibold">
+                {t("update")}
+              </button>
             </div>
           </div>
         </div>
