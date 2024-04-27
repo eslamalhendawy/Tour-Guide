@@ -85,12 +85,12 @@ function Search() {
           <div className="bg-white rounded-lg p-4 w-[80%]">Loading...</div>
         ) : (
           <>
-            <div className={`bg-white rounded-lg p-4 mb-6 w-[80%] ${selectedLanguage === "ar" && "ml-auto"}`}>{results.length} Result(s) Found</div>
-            <div className={`mb-12 w-[80%] ${selectedLanguage === "ar" && "ml-auto"}`}>
+            <div className={`bg-white rounded-lg p-4 mb-6 lg:w-[80%] ${selectedLanguage === "ar" && "ml-auto"}`}>{results.length} Result(s) Found</div>
+            <div className={`mb-12 lg:w-[80%] ${selectedLanguage === "ar" && "ml-auto"}`}>
               {results.length > 0 &&
                 results.map((item, index) => (
                   <div key={index} className="flex flex-col md:flex-row items-center md:items-stretch rounded-lg mb-8 bg-white">
-                    <img src={item.image} className="md:max-w-[350px] rounded-t-lg md:rounded-t-none md:rounded-bl-lg md:rounded-tl-lg" alt="" />
+                    <img src={item.image} className="md:w-[350px] md:h-[210px] rounded-t-lg md:rounded-t-none md:rounded-bl-lg md:rounded-tl-lg" alt="" />
                     <div className=" grow md:rounded-r-lg py-2 px-2 md:px-8 gap-6 flex flex-col items-center md:items-start justify-center">
                       <h3 className="text-brownOrange text-2xl font-bold text-center md:text-left">{item.name}</h3>
                       <Link to={`/place/${item._id}`} className="flex items-center w-fit gap-4 bg-brownOrange hover:bg-postage duration-300  text-white px-6 py-2 rounded-lg">
