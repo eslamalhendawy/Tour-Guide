@@ -69,7 +69,7 @@ function Search() {
       <div className="container mx-auto py-3 px-3 minHeight">
         <h3 className={`text-brownOrange text-4xl font-bold mt-12 mb-6 ${selectedLanguage === "ar" && "text-right"}`}>{t("search")}</h3>
         <div className={`flex lg:w-[60%]  items-center mb-12 ${selectedLanguage === "ar" && "flex-row-reverse ml-auto"}`}>
-          <input type="text" className={`grow h-[50px]  focus:outline-none px-1 text-lg ${selectedLanguage === "ar" ? "rounded-r-lg text-right" : "rounded-l-lg"}`} placeholder={`${selectedLanguage === "ar" ? "ابحث هنا" : "Search here..."}`} onChange={(e) => setQuery(e.target.value)} />
+          <input type="text" className={`w-[200px] sm:w-auto sm:grow h-[50px]  focus:outline-none px-1 text-lg ${selectedLanguage === "ar" ? "rounded-r-lg text-right" : "rounded-l-lg"}`} placeholder={`${selectedLanguage === "ar" ? "ابحث هنا" : "Search here..."}`} onChange={(e) => setQuery(e.target.value)} />
           <select className="h-[50px] w-[50px] lg:w-[100px] outline-none" onChange={(e) => setSelectedCategory(e.target.value)}>
             {categories.map((category, index) => (
               <option key={index} value={category.id}>
@@ -77,7 +77,7 @@ function Search() {
               </option>
             ))}
           </select>
-          <button onClick={searchHandler} className={`h-[50px] bg-brownOrange flex justify-center items-center px-4  cursor-pointer hover:bg-[#ad733b] duration-200 ${selectedLanguage === "ar" ? "rounded-l-lg" : "rounded-r-lg"}`}>
+          <button onClick={searchHandler} className={`h-[50px] bg-brownOrange flex justify-center items-center px-4 cursor-pointer hover:bg-[#ad733b] duration-200 ${selectedLanguage === "ar" ? "rounded-l-lg" : "rounded-r-lg"}`}>
             <i className="fa-solid fa-magnifying-glass text-white"></i>
           </button>
         </div>
@@ -90,7 +90,9 @@ function Search() {
               {results.length > 0 &&
                 results.map((item, index) => (
                   <div key={index} className="flex flex-col md:flex-row items-center md:items-stretch rounded-lg mb-8 bg-white">
-                    <img src={item.image} className="md:w-[350px] md:h-[210px] rounded-t-lg md:rounded-t-none md:rounded-bl-lg md:rounded-tl-lg" alt="" />
+                    <div className="md:h-[210px] h-[180px] w-full md:w-[350px]">
+                    <img src={item.image} className="w-full h-full rounded-t-lg md:rounded-t-none md:rounded-bl-lg md:rounded-tl-lg" alt="" />
+                    </div>
                     <div className=" grow md:rounded-r-lg py-2 px-2 md:px-8 gap-6 flex flex-col items-center md:items-start justify-center">
                       <h3 className="text-brownOrange text-2xl font-bold text-center md:text-left">{item.name}</h3>
                       <Link to={`/place/${item._id}`} className="flex items-center w-fit gap-4 bg-brownOrange hover:bg-postage duration-300  text-white px-6 py-2 rounded-lg">
