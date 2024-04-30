@@ -27,6 +27,7 @@ const Place = () => {
     setFetching(true);
     const fetchData = async () => {
       const temp = await getData(`place/${id}`, userToken);
+      console.log(temp);
       setPlace(temp.data.place);
       setIsFavorite(temp.data.place.isFavorite);
       setInTrip(temp.data.place.isTrip);
@@ -75,7 +76,7 @@ const Place = () => {
       navigator.geolocation.getCurrentPosition((position) => {
         let lat = position.coords.latitude;
         let long = position.coords.longitude;
-        window.open(`https://www.google.com/maps/dir/${lat},${long}/${place.latitude},${place.longitude}`, '_blank');
+        window.open(`https://www.google.com/maps/dir/${lat},${long}/${place.latitude},${place.longitude}`, "_blank");
       });
     }
   };
@@ -95,7 +96,10 @@ const Place = () => {
             <div className="flex flex-col sm:flex-row items-start sm:items-center sm:justify-between mb-6">
               <div className="mb-3 md:mb-0">
                 <div className="flex items-center gap-4 mb-3">
-                  <h3 className="text-brownOrange text-xl md:text-3xl capitalize">{place.name}</h3>
+                  <div>
+                    <h3 className="text-brownOrange text-xl md:text-3xl capitalize">{place.name}</h3>
+                    <p>Rating: {place.rating} / 5</p>
+                  </div>
                   {userData.loggedIn && (
                     <>
                       <i onClick={toggleFavourite} className={`fa-heart text-2xl text-[#fb001a] cursor-pointer ${isFavorite ? "fa-solid" : "fa-regular"}`}></i> <i onClick={toggleTrip} className={`fa-bookmark text-2xl text-postage cursor-pointer ${inTrip ? "fa-solid" : "fa-regular"}`}></i>
@@ -104,7 +108,7 @@ const Place = () => {
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <i className="fa-solid fa-location-dot text-brownOrange"></i>
-                  <span>Location of the events</span>
+                  <span>{place.location}</span>
                 </div>
               </div>
               <button onClick={handleLocation} className="bg-brownOrange hover:bg-postage duration-300 text-white py-2 px-8 rounded-lg">

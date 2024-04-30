@@ -16,6 +16,7 @@ const Events = () => {
   useEffect(() => {
     const fetchData = async () => {
       const temp = await getData(`event/${id}`);
+      console.log(temp);
       setEvent(temp.data.event);
       setFetching(false);
     };
@@ -50,7 +51,7 @@ const Events = () => {
                 <h3 className="text-brownOrange text-xl md:text-3xl mb-3 capitalize">{event.name}</h3>
                 <div className="flex items-center gap-2 text-sm">
                   <i className="fa-solid fa-location-dot text-brownOrange"></i>
-                  <span>Location of the events</span>
+                  <span>{event.location}</span>
                 </div>
               </div>
               <button onClick={handleLocation} className="bg-brownOrange hover:bg-postage duration-300 text-white py-2 px-8 rounded-lg">View Directions</button>

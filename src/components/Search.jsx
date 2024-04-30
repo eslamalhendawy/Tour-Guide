@@ -95,6 +95,7 @@ function Search() {
                     </div>
                     <div className=" grow md:rounded-r-lg py-2 px-2 md:px-8 gap-6 flex flex-col items-center md:items-start justify-center">
                       <h3 className="text-brownOrange text-2xl font-bold text-center md:text-left">{item.name}</h3>
+                      <p>Rating: {item.rating} / 5</p>
                       <Link to={`/place/${item._id}`} className="flex items-center w-fit gap-4 bg-brownOrange hover:bg-postage duration-300  text-white px-6 py-2 rounded-lg">
                         <span>{t("moreDetails")}</span>
                         <i className="fa-solid fa-angle-right"></i>

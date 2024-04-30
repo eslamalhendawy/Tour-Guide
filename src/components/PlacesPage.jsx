@@ -14,8 +14,9 @@ const PlacesPage = () => {
   const selectedLanguage = i18n.language;
 
   useEffect(() => {
-    getData(`place?page=${currentPage}`)
+    getData(`place`)
       .then((response) => {
+        console.log(response);
         setArticles(response.data.places);
         setNumberPages(response.numberOfPages);
         setLoading(false);
