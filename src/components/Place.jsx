@@ -98,7 +98,7 @@ const Place = () => {
                 <div className="flex items-center gap-4 mb-3">
                   <div>
                     <h3 className="text-brownOrange text-xl md:text-3xl capitalize">{place.name}</h3>
-                    <p>Rating: {place.rating} / 5</p>
+                    {/* <p>Rating: {place.rating} / 5</p> */}
                   </div>
                   {userData.loggedIn && (
                     <>
