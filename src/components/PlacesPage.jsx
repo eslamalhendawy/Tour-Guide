@@ -14,11 +14,12 @@ const PlacesPage = () => {
   const selectedLanguage = i18n.language;
 
   useEffect(() => {
+    setLoading(true);
     getData(`place?page=${currentPage}`)
       .then((response) => {
         console.log(response);
         setArticles(response.data.places);
-        setNumberPages(response.results);
+        setNumberPages(response.totalPages);
         setLoading(false);
       })
       .catch((error) => {
